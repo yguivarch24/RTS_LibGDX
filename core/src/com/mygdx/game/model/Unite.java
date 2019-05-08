@@ -11,8 +11,8 @@ abstract public class Unite extends LiveObject {
 	 * @param nbDeplacementMax Le nombre de points de mouvement de l'objet.
 	 * @param nbDeplacementRestant Le nb de point de mouvement initial durant le tour de l'objet.
 	 */
-	public Unite(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee, int nbDeplacementMax, int nbDeplacementRestant) {
-		super(x, y, name, vieMax, vie, attaque, defense, portee);
+	public Unite(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, int portee, int nbDeplacementMax, int nbDeplacementRestant) {
+		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee);
 		this.nbDeplacementMax = nbDeplacementMax;
 		this.nbDeplacementRestant = nbDeplacementRestant;
 	}

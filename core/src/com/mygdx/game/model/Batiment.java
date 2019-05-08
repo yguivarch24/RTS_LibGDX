@@ -21,12 +21,28 @@ abstract public class Batiment extends LiveObject {
 	 * @param nbderessourceinitial : quantité de ressource que possède initialement le batiment.
 	 * @param productionparTour : quantité de ressource que produit le batiment par tour
 	 */
-	public Batiment(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
-		super(x, y, name, vieMax, vie, attaque, defense, portee);
+	public Batiment(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
+		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee);
 		this.nbderessource = new Ressource(nbderessourceinitial);
 		this.productionParTour = productionparTour;
 	}
+	
 	public void produire(){
 		this.nbderessource.ajouter(productionParTour);
+		//TODO Retirer ressource à l'environnement
+	}
+	
+	public void recuperer() {
+		//TODO Ajouter toutes les ressources contenues dans le bâtiment au joueur possédant le bâtiment
+		//TODO Retirer toutes les ressources contenues dans le bâtiment
+	}
+	
+	static public Batiment construire(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
+		// Enlever les ressources au joueur
+		return Batiment(x, y, name, vieMax, vie, attaque, defense, portee, nbderessourceinitial, productionparTour);
+	}
+	
+	public void creerUnite() {
+		
 	}
 }

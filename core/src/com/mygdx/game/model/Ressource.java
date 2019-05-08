@@ -20,12 +20,17 @@ public class Ressource {
 		this.name = name;
 	}
 	
+	/** Obtenir le nom de la ressource */
+	public String getNom() {
+		return this.name;
+	}
+	
 	/** Obtenir le nombre de ressources disponibles */
 	public int getRessources(){
 		return this.quantiteRessource;
 	}
 	
-	/** Retirer des ressources à l'environnement
+	/** Retirer des ressources
 	 * @param quantite le nombre de ressources à retirer.
 	 */
 	public void retirer(int quantite) throws RessourceIndisponibleException{
@@ -36,7 +41,7 @@ public class Ressource {
 		}
 	}
 	
-	/** Ajouter des ressources à l'environnement
+	/** Ajouter des ressources
 	 * @param quantite le nombre de ressources à ajouter.
 	 */
 	public void ajouter(int quantite){
