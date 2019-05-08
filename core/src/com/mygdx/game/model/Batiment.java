@@ -37,10 +37,10 @@ abstract public class Batiment extends LiveObject {
 		//TODO Retirer toutes les ressources contenues dans le bâtiment
 	}
 	
-	static public Batiment construire(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
+	/*static public Batiment construire(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
 		// Enlever les ressources au joueur
 		return Batiment(x, y, name, vieMax, vie, attaque, defense, portee, nbderessourceinitial, productionparTour);
-	}
+	}*/
 	
 	public void creerUnite() {
 		
