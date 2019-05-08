@@ -9,6 +9,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.mygdx.game.model.Joueur;
 import com.mygdx.game.model.LiveObject;
 import com.mygdx.game.model.Soldat;
 import com.mygdx.game.model.Unite;
@@ -19,6 +20,7 @@ public class AnotherScreen implements Screen {
 
     private MyGdxGameRTSLauncher game;
     private SpriteBatch batch;
+    private Joueur joueur;
 
     TiledMapStage stage;
     TiledMap tiledMap;
@@ -38,7 +40,7 @@ public class AnotherScreen implements Screen {
 
         tiledMap = new TmxMapLoader().load("Tiles/grass_tileset_map.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-        LiveObject soldat = new Soldat(0, 0, 10, 10, 10, 10, 1, 3, 3);
+        LiveObject soldat = new Soldat(0, 0, this.joueur, 10, 10, 10, 10, 1, 3, 3);
         LiveObjectActor vuesoldat = new LiveObjectActor(soldat);
         stage = new TiledMapStage(tiledMap);
         stage.getViewport().setCamera(camera);
