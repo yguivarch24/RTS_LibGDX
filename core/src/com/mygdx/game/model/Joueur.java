@@ -20,10 +20,10 @@ public class Joueur {
 		return this.pseudo;
 	}
 	
-	public int getRessources(Ressource ressource) {
+	/*public int getRessources(Ressource ressource) {
 		while (Ressource res : this.ressourcesPossedees) {
 			return resgetRessources();
 		}
-	}
+	}*/
 
 }

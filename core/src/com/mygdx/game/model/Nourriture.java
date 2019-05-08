@@ -4,6 +4,6 @@ public class Nourriture extends Ressource {
 
 	
 	public Nourriture(){
-		super("Nourriture", 10);
+		super("Nourriture", 100000);
 	}
 }

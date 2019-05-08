@@ -3,6 +3,6 @@ package com.mygdx.game.model;
 public class Bois extends Ressource{
 
 	public Bois(){
-		super("Bois", 10);
+		super("Bois", 100000);
 	}
 }
