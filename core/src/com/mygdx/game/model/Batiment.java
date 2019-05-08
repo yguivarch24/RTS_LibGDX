@@ -27,12 +27,12 @@ abstract public class Batiment extends LiveObject {
 		this.productionParTour = productionparTour;
 	}
 	
-	public void produire(){
+	public void batimentGainRessource(){
 		this.ressource.ajouter(productionParTour);
 		//TODO Retirer ressource à l'environnement
 	}
 	
-	public void recuperer() {
+	public void joueurRecupere() {
 		//TODO Ajouter toutes les ressources contenues dans le bâtiment au joueur possédant le bâtiment
 		//TODO Retirer toutes les ressources contenues dans le bâtiment
 	}
