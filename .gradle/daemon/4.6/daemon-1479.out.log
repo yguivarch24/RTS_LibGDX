@@ -1,0 +1,195 @@
+11:03:51.030 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonMain] Assuming the daemon was started with following jvm opts: [-Xms128m, -Xmx1500m, -Dfile.encoding=UTF-8, -Duser.country=FR, -Duser.language=fr, -Duser.variant]
+11:03:51.088 [INFO] [org.gradle.launcher.daemon.server.Daemon] start() called on daemon - DefaultDaemonContext[uid=99103aea-c7ce-4b95-9b5f-457feda985c0,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/ggermon/.gradle/daemon,pid=1479,idleTimeout=120000,daemonOpts=-Xms128m,-Xmx1500m,-Dfile.encoding=UTF-8,-Duser.country=FR,-Duser.language=fr,-Duser.variant]
+11:03:51.100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface docker0
+11:03:51.100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+11:03:51.100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a multicast interface? true
+11:03:51.100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /172.17.0.1
+11:03:51.100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote multicast interface docker0
+11:03:51.101 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface eth3
+11:03:51.101 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+11:03:51.101 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a multicast interface? true
+11:03:51.101 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:da9e:f3ff:fe40:73a7%eth3
+11:03:51.102 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /147.127.133.1
+11:03:51.102 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote multicast interface eth3
+11:03:51.102 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface lo
+11:03:51.102 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? true
+11:03:51.102 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a multicast interface? false
+11:03:51.102 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /0:0:0:0:0:0:0:1%lo
+11:03:51.103 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /127.0.0.1
+11:03:51.104 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Listening on [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]].
+11:03:51.106 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] Daemon starting at: Wed May 08 11:03:51 CEST 2019, with address: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]]
+11:03:51.106 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertising the daemon address to the clients: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]]
+11:03:51.107 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertised daemon context: DefaultDaemonContext[uid=99103aea-c7ce-4b95-9b5f-457feda985c0,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/ggermon/.gradle/daemon,pid=1479,idleTimeout=120000,daemonOpts=-Xms128m,-Xmx1500m,-Dfile.encoding=UTF-8,-Duser.country=FR,-Duser.language=fr,-Duser.variant]
+11:03:51.107 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon address: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]], context: DefaultDaemonContext[uid=99103aea-c7ce-4b95-9b5f-457feda985c0,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/ggermon/.gradle/daemon,pid=1479,idleTimeout=120000,daemonOpts=-Xms128m,-Xmx1500m,-Dfile.encoding=UTF-8,-Duser.country=FR,-Duser.language=fr,-Duser.variant]
+11:03:51.115 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+11:03:51.121 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+11:03:51.121 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+11:03:51.124 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+11:03:51.127 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+11:03:51.133 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+11:03:51.136 [LIFECYCLE] [org.gradle.launcher.daemon.server.Daemon] Daemon server started.
+11:03:51.137 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonStartupCommunication] Completed writing the daemon greeting. Closing streams...
+11:03:51.139 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stopOnExpiration() called on daemon
+11:03:51.140 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] awaitExpiration() called on daemon
+11:03:51.140 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+11:03:51.153 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /0:0:0:0:0:0:0:1:59101 to /0:0:0:0:0:0:0:1:53035.
+11:03:51.212 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 15: received class org.gradle.launcher.daemon.protocol.Build
+11:03:51.213 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 15: Received non-IO message from client: Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}
+11:03:51.213 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}.
+11:03:51.213 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test} with connection: socket connection from /0:0:0:0:0:0:0:1:53035 to /0:0:0:0:0:0:0:1:59101.
+11:03:51.214 [ERROR] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}, connection = DefaultDaemonConnection: socket connection from /0:0:0:0:0:0:0:1:53035 to /0:0:0:0:0:0:0:1:59101] after 0.0 minutes of idle
+11:03:51.215 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]]
+11:03:51.215 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]]
+11:03:51.216 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+11:03:51.219 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+11:03:51.228 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+11:03:51.231 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+11:03:51.231 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+11:03:51.232 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}. Dispatching build started information...
+11:03:51.232 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 17: dispatching class org.gradle.launcher.daemon.protocol.BuildStarted
+11:03:51.235 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: {PATH=/opt/uhd-usrp/bin:/opt/opam/4.06.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin, XAUTHORITY=/home/ggermon/.Xauthority, MANPATH=:/opt/opam/4.06.0/man:/opt/opam/4.06.0/man, PULSE_CLIENTCONFIG=/home/ggermon/.x2go/C-ggermon-52-1557157764_stDMATE_dp32/.pulse-client.conf, JAVA_HOME=/usr/lib/jvm/java-8-oracle, TERM=dumb, LANG=fr_FR.UTF-8, DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-VQDsWERM9s,guid=ecd48122625d554fb3b868135cd05792, XDG_SESSION_ID=41, XDG_CURRENT_DESKTOP=MATE, DISPLAY=:52.0, OPAMROOT=/opt/opam, QT_GRAPHICSSYSTEM=native, MAIL=/var/mail/ggermon, LD_LIBRARY_PATH=, SESSION_MANAGER=local/dragon:@/tmp/.ICE-unix/8251,unix/dragon:/tmp/.ICE-unix/8251, LOGNAME=ggermon, CAML_LD_LIBRARY_PATH=/opt/opam/4.06.0/lib/stublibs, PWD=/home/ggermon/test, X2GO_SESSION=ggermon-52-1557157764_stDMATE_dp32, DERBY_HOME=/usr/lib/jvm/java-8-oracle/db, OCAML_TOPLEVEL_PATH=/opt/opam/4.06.0/lib/toplevel, PERL5LIB=/opt/opam/4.06.0/lib/perl5:/opt/opam/4.06.0/lib/perl5:, X2GO_AGENT_PID=7987, SHELL=/bin/bash, GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/JB-java-jdk8.desktop, SSH_CLIENT=172.23.232.184 58551 22, J2SDKDIR=/usr/lib/jvm/java-8-oracle, GPG_AGENT_INFO=/run/user/42761/keyring/gpg:0:1, STARTUP=/usr/bin/dbus-launch --exit-with-session /usr/bin/env LD_LIBRARY_PATH= mate-session, OLDPWD=/home/ggermon/test, XSESSION_EXEC=mate-session, USER=ggermon, GIO_LAUNCHED_DESKTOP_FILE_PID=689, SSH_AUTH_SOCK=/run/user/42761/keyring/ssh, J2REDIR=/usr/lib/jvm/java-8-oracle/jre, SSH_CONNECTION=172.23.232.184 58551 147.127.133.1 22, MATE_DESKTOP_SESSION_ID=this-is-deprecated, XDG_RUNTIME_DIR=/run/user/42761, HOME=/home/ggermon, SHLVL=3}
+11:03:51.241 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+11:03:51.241 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 1479). The daemon log file: /home/ggermon/.gradle/daemon/4.6/daemon-1479.out.log
+11:03:51.242 [DEBUG] [org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon] Requesting daemon stop after processing Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}
+11:03:51.242 [LIFECYCLE] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon will be stopped at the end of the build stopping after processing
+11:03:51.243 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Stop as soon as idle requested. The daemon is busy: true
+11:03:51.244 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon stop has been requested. Sleeping until state changes.
+11:03:51.245 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+11:03:51.245 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=99103aea-c7ce-4b95-9b5f-457feda985c0,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/ggermon/.gradle/daemon,pid=1479,idleTimeout=120000,daemonOpts=-Xms128m,-Xmx1500m,-Dfile.encoding=UTF-8,-Duser.country=FR,-Duser.language=fr,-Duser.variant]
+:core:clean UP-TO-DATE
+:desktop:clean UP-TO-DATE
+:eclipseProject
+:eclipse
+:core:eclipseClasspath
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx/1.9.9/gdx-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/ashley/ashley/1.7.0/ashley-1.7.0.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-parent/1.9.9/gdx-parent-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-ai/1.8.0/gdx-ai-1.8.0.pom
+Download https://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/box2dlights/box2dlights/1.4/box2dlights-1.4.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-freetype/1.9.9/gdx-freetype-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers/1.9.9/gdx-controllers-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers-parent/1.9.9/gdx-controllers-parent-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-box2d/1.9.9/gdx-box2d-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-box2d-parent/1.9.9/gdx-box2d-parent-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/box2dlights/box2dlights/1.4/box2dlights-1.4.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers/1.9.9/gdx-controllers-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-freetype/1.9.9/gdx-freetype-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-ai/1.8.0/gdx-ai-1.8.0.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-box2d/1.9.9/gdx-box2d-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx/1.9.9/gdx-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/ashley/ashley/1.7.0/ashley-1.7.0.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers/1.9.9/gdx-controllers-1.9.9-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/ashley/ashley/1.7.0/ashley-1.7.0-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-freetype/1.9.9/gdx-freetype-1.9.9-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-ai/1.8.0/gdx-ai-1.8.0-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/box2dlights/box2dlights/1.4/box2dlights-1.4-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-box2d/1.9.9/gdx-box2d-1.9.9-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx/1.9.9/gdx-1.9.9-sources.jar
+:core:eclipseJdt
+:core:eclipseProject
+:core:eclipse
+:desktop:eclipseClasspath
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-backend-lwjgl/1.9.9/gdx-backend-lwjgl-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-box2d-platform/1.9.9/gdx-box2d-platform-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-platform/1.9.9/gdx-platform-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers-desktop/1.9.9/gdx-controllers-desktop-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers-platform/1.9.9/gdx-controllers-platform-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-tools/1.9.9/gdx-tools-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-freetype-platform/1.9.9/gdx-freetype-platform-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx.pom
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl_util/2.9.2/lwjgl_util-2.9.2.pom
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl/2.9.2/lwjgl-2.9.2.pom
+Download https://repo.maven.apache.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17.pom
+Download https://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/parent/2.9.2/parent-2.9.2.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-backend-headless/1.9.9/gdx-backend-headless-1.9.9.pom
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2.pom
+Download https://repo.maven.apache.org/maven2/net/java/jinput/jinput/2.0.5/jinput-2.0.5.pom
+Download https://repo.maven.apache.org/maven2/net/java/jutils/jutils/1.0.0/jutils-1.0.0.pom
+Download https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5.pom
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-backend-lwjgl/1.9.9/gdx-backend-lwjgl-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-platform/1.9.9/gdx-platform-1.9.9-natives-desktop.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-tools/1.9.9/gdx-tools-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers-desktop/1.9.9/gdx-controllers-desktop-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers-platform/1.9.9/gdx-controllers-platform-1.9.9-natives-desktop.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-freetype-platform/1.9.9/gdx-freetype-platform-1.9.9-natives-desktop.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-backend-headless/1.9.9/gdx-backend-headless-1.9.9.jar
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl_util/2.9.2/lwjgl_util-2.9.2.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx.jar
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl/2.9.2/lwjgl-2.9.2.jar
+Download https://repo.maven.apache.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17.jar
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2-natives-windows.jar
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2-natives-osx.jar
+Download https://repo.maven.apache.org/maven2/net/java/jinput/jinput/2.0.5/jinput-2.0.5.jar
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2-natives-linux.jar
+Download https://repo.maven.apache.org/maven2/net/java/jutils/jutils/1.0.0/jutils-1.0.0.jar
+Download https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-linux.jar
+Download https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-windows.jar
+Download https://repo.maven.apache.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-osx.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-box2d-platform/1.9.9/gdx-box2d-platform-1.9.9-natives-desktop.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-tools/1.9.9/gdx-tools-1.9.9-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-backend-lwjgl/1.9.9/gdx-backend-lwjgl-1.9.9-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-controllers-desktop/1.9.9/gdx-controllers-desktop-1.9.9-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/gdx/gdx-backend-headless/1.9.9/gdx-backend-headless-1.9.9-sources.jar
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl_util/2.9.2/lwjgl_util-2.9.2-sources.jar
+Download https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/lwjgl/2.9.2/lwjgl-2.9.2-sources.jar
+Download https://repo.maven.apache.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx-sources.jar
+Download https://repo.maven.apache.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17-sources.jar
+Download https://repo.maven.apache.org/maven2/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar
+Download https://repo.maven.apache.org/maven2/net/java/jutils/jutils/1.0.0/jutils-1.0.0-sources.jar
+:desktop:eclipseJdt
+:desktop:eclipseProject
+:desktop:eclipse
+:desktop:afterEclipseImport
+:ideaModule
+:ideaProject
+:ideaWorkspace
+:idea
+:core:ideaModule
+:core:idea
+:desktop:ideaModule
+:desktop:idea
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+See https://docs.gradle.org/4.6/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 19s
+16 actionable tasks: 14 executed, 2 up-to-date
+11:04:01.699 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon stop has been requested. Sleeping until state changes.
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}, connection = DefaultDaemonConnection: socket connection from /0:0:0:0:0:0:0:1:53035 to /0:0:0:0:0:0:0:1:59101]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@51c3113 with state StopRequested
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}, connection = DefaultDaemonConnection: socket connection from /0:0:0:0:0:0:0:1:53035 to /0:0:0:0:0:0:0:1:59101]
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Marking daemon stopped due to command completed and stop requested. The daemon is running a build: false
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon has stopped.
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stop() called on daemon
+11:04:01.706 [INFO] [org.gradle.launcher.daemon.server.Daemon] Stop requested. Daemon is removing its presence from the registry...
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=null]
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 14: dispatching class org.gradle.launcher.daemon.protocol.Success
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Removing our presence to clients, eg. removing this address from the registry: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]]
+11:04:01.706 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]]
+11:04:01.707 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+11:04:01.709 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 15: received class org.gradle.launcher.daemon.protocol.CloseInput
+11:04:01.709 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 15: Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@4aa69cfc
+11:04:01.710 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 15: received class org.gradle.launcher.daemon.protocol.Finished
+11:04:01.710 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 15: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@77f715bb
+11:04:01.710 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=17307cbd-7be7-4d61-9fb6-9fbe162d77ac.1, currentDir=/home/ggermon/test}
+11:04:01.710 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@77f715bb
+11:04:01.710 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 14: stopping connection
+11:04:01.711 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+11:04:01.711 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 15: received null
+11:04:01.711 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 15: Received end-of-input from client.
+11:04:01.711 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 14: stopping connection
+11:04:01.712 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+11:04:01.717 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+11:04:01.719 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Address removed from registry.
+11:04:01.720 [DEBUG] [org.gradle.cache.internal.DefaultCacheAccess] Cache jars (/home/ggermon/.gradle/caches/jars-3) was closed 0 times.
+11:04:01.720 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for file hash cache (/home/ggermon/.gradle/caches/4.6/fileHashes)
+11:04:01.720 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache fileHashes.bin (/home/ggermon/.gradle/caches/4.6/fileHashes/fileHashes.bin)
+11:04:01.722 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on file hash cache (/home/ggermon/.gradle/caches/4.6/fileHashes).
+Daemon vm is shutting down... The daemon has exited normally or was terminated in response to a user interrupt.
+11:04:01.726 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [85dc7fb7-1443-4353-8a76-cbd4b9b15417 port:53035, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]]
+11:04:01.726 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+11:04:01.729 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+11:04:01.734 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
