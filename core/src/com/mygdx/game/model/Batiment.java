@@ -4,7 +4,7 @@ abstract public class Batiment extends LiveObject {
 	
 	
 	/** quantité de ressource que possède le batiment.	 */
-	private Ressource nbderessource;
+	private Ressource ressource;
 	/** quantité de ressource que produit le batiment par tour.	 */
 	private int productionParTour;
 	
@@ -23,12 +23,12 @@ abstract public class Batiment extends LiveObject {
 	 */
 	public Batiment(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
 		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee);
-		this.nbderessource = new Ressource(nbderessourceinitial);
+		this.ressource = new Ressource(nbderessourceinitial);
 		this.productionParTour = productionparTour;
 	}
 	
 	public void produire(){
-		this.nbderessource.ajouter(productionParTour);
+		this.ressource.ajouter(productionParTour);
 		//TODO Retirer ressource à l'environnement
 	}
 	
