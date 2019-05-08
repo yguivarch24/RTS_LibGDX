@@ -11,6 +11,8 @@ import java.lang.Math;
  
 public class LiveObject extends GameObject {
 
+	/** Le joueur qui possède le bâtiment */
+	private Joueur joueur;
 	/** La vie maximal de l'objet */ 
 	private int vieMax;
 	/** La vie courante de l'objet */ 
@@ -30,8 +32,9 @@ public class LiveObject extends GameObject {
 	 * @param defense Statistique  inital de défense de l'objet
 	 * @param portee Statistique initial de portée d'effet de l'objet
 	 */
-    public LiveObject(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee) {
+    public LiveObject(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, int portee) {
         super(x, y, name);
+        this.joueur = joueur;
         this.vieMax = vieMax;
         this.vie = vie;
         this.attaque = attaque;
