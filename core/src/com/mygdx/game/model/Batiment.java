@@ -13,6 +13,7 @@ abstract public class Batiment extends LiveObject {
 	 * @param x Position en x initial de l'objet
 	 * @param y Position en y initial de l'objet
 	 * @param name Nom de l'objet
+	 * @paraù joueur joueur a qui appartient le batiment
 	 * @param vieMax Statistique de vie max
 	 * @param vie Vie que l'objet a initialement
 	 * @param attaque Statistique inital d'attaque de l'objet
