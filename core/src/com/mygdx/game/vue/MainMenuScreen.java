@@ -34,13 +34,14 @@ public class MainMenuScreen implements Screen {
     private final Music mp3Music = Gdx.audio.newMusic(Gdx.files.internal("GloriousMorning.mp3"));
 
 
-    // constructor to keep a reference to the main Game class
+    // Constructeur, permet de garder une référence sur la classe principale Game
     public MainMenuScreen(MyGdxGameRTSLauncher pgame){
         this.game = pgame;
-
+        
+        /** Chargement de l'image */
         texture = new Texture(Gdx.files.internal("backgroundMenu.jpg"));
         /** Pour le menu */
-        stage=new Stage(new FitViewport(800,480,new OrthographicCamera()));
+        stage=new Stage(new FitViewport(800,480,new OrthographicCamera())); //stage permet la gestion des fenêtres ?
         /**Pour déssiner l'image */
         spriteBatch = new SpriteBatch();
 
@@ -65,22 +66,32 @@ public class MainMenuScreen implements Screen {
 
         startGame.addListener(new ClickListener(){
             @Override
+            /** Listener sur le bouton startGame*/
             public void clicked(InputEvent event, float x, float y) {
                 startGame.addAction(Actions.fadeOut(0.7f));
                 mp3Music.stop();
-                Gdx.input.setInputProcessor(game.anotherScreen.stage);
-                game.setScreen(game.anotherScreen);
+                Gdx.input.setInputProcessor(game.map1.stage);
+                game.setScreen(game.map1);
+            }
+        });
+        options.addListener(new ClickListener(){
+        	@Override
+            /** Listener sur le bouton options*/
+            public void clicked(InputEvent event, float x, float y) {
+               
             }
         });
 
         quit.addListener(new ClickListener(){
+        	/** Listener sur le bouton quit*/
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 dispose();
             }
         });
     }
-
+    
+    /** Rafraichir l'image */
     @Override
     public void render(float delta) {
         // clear the screen

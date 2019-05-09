@@ -7,7 +7,6 @@ public class MyGdxGameRTSLauncher extends Game {
 
 	protected float musicVolume;
 	protected MainMenuScreen mainMenuScreen;
-	protected AnotherScreen anotherScreen;
 	protected Map1 map1;
 
 
@@ -15,7 +14,6 @@ public class MyGdxGameRTSLauncher extends Game {
 	public void create() {
 		musicVolume = 0.5f;
 		mainMenuScreen = new MainMenuScreen(this);
-		anotherScreen = new AnotherScreen(this);
 		map1 = new Map1(this);
 		setScreen(mainMenuScreen);
 	}
