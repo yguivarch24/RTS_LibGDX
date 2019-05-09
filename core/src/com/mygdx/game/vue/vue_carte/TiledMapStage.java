@@ -18,7 +18,6 @@ public class TiledMapStage extends Stage {
 
     public static final int size = 16;
 
-
     public TiledMapStage(TiledMap tiledMap) {
         this.tiledMap = tiledMap;
         for (MapLayer layer : tiledMap.getLayers()) {

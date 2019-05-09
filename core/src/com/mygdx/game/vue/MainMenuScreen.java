@@ -26,7 +26,7 @@ public class MainMenuScreen implements Screen {
     private SpriteBatch spriteBatch;
     private Texture texture;
     private final Skin skin = new Skin( Gdx.files.internal( "defaultskin.json" ));
-    private Stage stage;
+    Stage stage;
     private Table table;
     private final TextButton startGame = new TextButton("start game",skin);
     private final TextButton options = new TextButton("options",skin);
@@ -37,7 +37,6 @@ public class MainMenuScreen implements Screen {
     // Constructeur, permet de garder une référence sur la classe principale Game
     public MainMenuScreen(MyGdxGameRTSLauncher pgame){
         this.game = pgame;
-        
         /** Chargement de l'image */
         texture = new Texture(Gdx.files.internal("backgroundMenu.jpg"));
         /** Pour le menu */
@@ -78,7 +77,10 @@ public class MainMenuScreen implements Screen {
         	@Override
             /** Listener sur le bouton options*/
             public void clicked(InputEvent event, float x, float y) {
-               
+        		startGame.addAction(Actions.fadeOut(0.7f));
+        		mp3Music.stop();
+                Gdx.input.setInputProcessor(game.mapOption.stage);
+                game.setScreen(game.mapOption);
             }
         });
 
