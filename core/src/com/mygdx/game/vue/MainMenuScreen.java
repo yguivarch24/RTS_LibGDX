@@ -77,7 +77,6 @@ public class MainMenuScreen implements Screen {
         	@Override
             /** Listener sur le bouton options*/
             public void clicked(InputEvent event, float x, float y) {
-        		startGame.addAction(Actions.fadeOut(0.7f));
         		mp3Music.stop();
                 Gdx.input.setInputProcessor(game.mapOption.stage);
                 game.setScreen(game.mapOption);
@@ -123,7 +122,6 @@ public class MainMenuScreen implements Screen {
     @Override
     public void hide() {
         // called when current screen changes from this to a different screen
-        stage.dispose();
     }
 
     @Override

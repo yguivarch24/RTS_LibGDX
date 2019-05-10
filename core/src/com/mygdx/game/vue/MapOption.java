@@ -96,7 +96,6 @@ public class MapOption implements Screen {
 	        	@Override
 	            /** Listener sur le bouton options*/
 	            public void clicked(InputEvent event, float x, float y) {
-	        		rtn.addAction(Actions.fadeOut(0.7f));
 	        		Gdx.input.setInputProcessor(game.mainMenuScreen.stage);
 	                game.setScreen(game.mainMenuScreen);
 	            }
