@@ -12,7 +12,7 @@ import java.lang.Math;
 public class LiveObject extends GameObject {
 
 	/** Le joueur qui possède le bâtiment */
-	private Joueur joueur;
+	protected Joueur joueur;
 	/** La vie maximal de l'objet */ 
 	private int vieMax;
 	/** La vie courante de l'objet */ 
