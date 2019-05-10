@@ -1,7 +1,7 @@
 package com.mygdx.game.model;
 
 
-public class Mine extends Batiment{
+public class Mine extends BatimentRessource {
 	
 
 	/** Constructeur d'une mine initialise ses statistiques et sa position.
@@ -11,6 +11,6 @@ public class Mine extends Batiment{
 	 * @param Joueur a qui appartient la mine
 */
 	public Mine(int x, int y, Joueur joueur) {
-		super(x,y,"Mine",joueur,100,100,0,20,0,15,0);
+		super(x,y,"Mine",joueur,100,100,0,20,0,1000,5);
 	}
 }

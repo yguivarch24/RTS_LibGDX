@@ -1,6 +1,6 @@
 package com.mygdx.game.model;
 
-public class Ferme extends Batiment{
+public class Ferme extends BatimentRessource {
 	
 
 	/** Constructeur d'une ferme initialise ses statistiques et sa position.
@@ -10,6 +10,6 @@ public class Ferme extends Batiment{
 	 * @param Joueur a qui appartient la ferme
 */
 	public Ferme(int x, int y, Joueur joueur) {
-		super(x,y,"Ferme",joueur,100,100,0,20,0,15,0);
+		super(x,y,"Ferme",joueur,100,100,0,20,0,1000,5);
 	}
 }

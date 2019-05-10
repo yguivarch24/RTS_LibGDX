@@ -1,6 +1,6 @@
 package com.mygdx.game.model;
 
-public class HotelDeVille extends Batiment{
+public class HotelDeVille extends Batiment {
 
 
 	/** Constructeur d'un hotel de ville initialise ses statistiques et sa position.
@@ -9,7 +9,7 @@ public class HotelDeVille extends Batiment{
 	 * @param Joueur a qui appartient l'hotel de ville
 	*/
 	public HotelDeVille(int x, int y, Joueur joueur) {
-			super(x,y,"Hotel de ville",joueur,1000,1000,0,20,0,15,10);
+			super(x,y,"Hotel de ville",joueur,1000,1000,0,20,0);
 	}
 
 }

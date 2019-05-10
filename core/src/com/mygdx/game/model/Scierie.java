@@ -1,6 +1,6 @@
 package com.mygdx.game.model;
 
-public class Scierie extends Batiment{
+public class Scierie extends BatimentRessource {
 	
 
 	/** Constructeur d'une ferme initialise ses statistiques et sa position.
@@ -10,7 +10,7 @@ public class Scierie extends Batiment{
 	 * @param Joueur a qui appartient la ferme
 */
 	public Scierie(int x, int y, Joueur joueur) {
-		super(x,y,"Scierie",joueur,100,100,0,20,0,15,0);
+		super(x,y,"Scierie",joueur,100,100,0,20,0,1000,5);
 	}
 }
 
