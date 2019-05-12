@@ -27,6 +27,10 @@ public class BatimentRessource extends Batiment {
 		this.productionParTour = productionparTour;
 	}
 	
+	public int getProduction() {
+		return productionParTour;
+	}
+	/*
 	public void batimentGainRessource(){
 		this.ressource.ajouter(productionParTour);
 		//TODO Retirer ressource à l'environnement
@@ -40,10 +44,5 @@ public class BatimentRessource extends Batiment {
 	/*static public Batiment construire(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
 		// Enlever les ressources au joueur
 		return Batiment(x, y, name, vieMax, vie, attaque, defense, portee, nbderessourceinitial, productionparTour);
-	}*/
-	
-	public void creerUnite() {
-		
-	}
-	
+	}*/	
 }

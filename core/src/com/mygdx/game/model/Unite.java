@@ -6,15 +6,18 @@ abstract public class Unite extends LiveObject {
 	private int nbDeplacementMax;
 	/** Le nombre de points de mouvement restants durant un tour. */
 	private int nbDeplacementRestant;
+	/** Le nombre de points de vie regénéré en début de tour. */
+	private int regenVieTour;
 
 	/** Constructeur d'un objet vivant, initialise ses statistiques et sa position.
 	 * @param nbDeplacementMax Le nombre de points de mouvement de l'objet.
 	 * @param nbDeplacementRestant Le nb de point de mouvement initial durant le tour de l'objet.
 	 */
-	public Unite(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, int portee, int nbDeplacementMax, int nbDeplacementRestant) {
+	public Unite(int x, int y, String name, Joueur joueur, int vieMax, int vie, int regen, int attaque, int defense, int portee, int nbDeplacementMax, int nbDeplacementRestant) {
 		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee);
 		this.nbDeplacementMax = nbDeplacementMax;
 		this.nbDeplacementRestant = nbDeplacementRestant;
+		this.regenVieTour = regen;
 	}
 	
 	
@@ -30,8 +33,13 @@ abstract public class Unite extends LiveObject {
 		}
 	}
 	
-	public void initTour() {
+	public void initTourUnite() {
+		// Reset des points de mouvements
 		this.nbDeplacementRestant = this.nbDeplacementMax;
+		// Regeneration de vie de début de tour.
+		if(this.vie <= regenVieTour) {
+			this.vie += this.vieMax - this.vie;
+		} else { this.regenVieTour += regenVieTour;}
 	}
 
 }

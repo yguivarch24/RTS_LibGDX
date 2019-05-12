@@ -14,9 +14,9 @@ public class LiveObject extends GameObject {
 	/** Le joueur qui possède le bâtiment */
 	private Joueur joueur;
 	/** La vie maximal de l'objet */ 
-	private int vieMax;
+	protected int vieMax;
 	/** La vie courante de l'objet */ 
-	private int vie;
+	protected int vie;
 	/** La statistique de dégat de l'objet */ 
 	private int attaque;
 	/** La statistique de défense de l'objet */ 

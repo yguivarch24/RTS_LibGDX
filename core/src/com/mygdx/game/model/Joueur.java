@@ -1,4 +1,8 @@
 package com.mygdx.game.model;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Joueur {
 	
@@ -15,11 +19,33 @@ public class Joueur {
 	/** La 3e ressource et son montant associÃ©es au joueur */
 	private Ressource or;
 	
+	/** Liste des troupes appartenant aux joueur. Chaque types d'unité est associée à 
+	 * une clée (un nombre entier) comme ceci :
+	 * 1 - Soldat 
+	 * 2 - Archer */
+	private Map<Integer, List<Unite>> troupes;
+	/** Liste des batiments appartenant aux joueur. */
+	private List<Batiment> batiments;
+ 
+	
 	public Joueur(String pseudo, Ressource ressource1, Ressource ressource2, Ressource ressource3) {
 		this.pseudo = pseudo;
 		this.nourriture = ressource1;
 		this.bois = ressource2;
 		this.or = ressource3;
+		this.troupes = new HashMap();
+		this.batiments = new ArrayList(); 
+	}
+	
+	/** Permet d'initaliser le tour d'un joueur. (initialise les unite, les ressources etc...) */
+	public void initTourJoueur() {
+		troupes.forEach((t, listeUnite) ->  {
+			listeUnite.forEach(unite -> {
+				unite.initTourUnite();
+			});
+		});
+		
+		// TODO Le gain en ressource du début de tour
 	}
 	
 	public String getPseudo() {
@@ -56,5 +82,85 @@ public class Joueur {
 		
 	}
 	
-
+	/** Accesseur de la liste des batiments du joueur.
+	 * 
+	 * @return La liste de batimetns que possède un joueur.
+	 */
+	public List<Batiment> getBatiments() {
+		return batiments;
+	}
+	
+	/** Permet d'jaouter un batiment dans la liste des batiments du joueur.
+	 * 
+	 * @param nouveauBat Le batiment à ajouter.
+	 */
+	public void ajouterBatiment(Batiment nouveauBat) {
+		this.batiments.add(nouveauBat);
+	}
+	
+	/** Permet de supprimer un batiment dans la liste des batiments du joueur.
+	 * 
+	 * @param bat Le batiment à supprimer.
+	 */
+	public void supprimerBatiment(Batiment bat) {
+		this.batiments.remove(bat);
+	}
+	
+	/** Renvoi la map de toutes les troupes du joueur/
+	 * 
+	 * @return La map des troupes : Map<Integer, List<Unite>>
+	 */
+	public Map<Integer, List<Unite>> getTroupes() {
+		return troupes;
+	}
+	
+	/** Renvoi la lsite de tous les soldats du joueurs.
+	 * 
+	 * @return Liste des soldats.
+	 */
+	public List<Unite> getSoldat(){
+		return troupes.get(1);
+	}
+	
+	/** Renvoi la lsite de tous les soldats du joueurs.
+	 * 
+	 * @return Liste des soldats.
+	 */
+	public List<Unite> getArcher() {
+		return troupes.get(2);
+	}
+	
+	/** Permet d'jaouter une troupe à la liste des troupes du joueur. 
+	 * Quelque soit le type de troupe.
+	 * 
+	 * @param newUnite La troupe à ajouter au joueur.
+	 */
+	public void ajouterTroupe(Unite newUnite) {
+		/*On ajoute l'unité à la liste correspondante au type d'unité (soldat, archer...).
+		On cherche donc d'abord quel type d'unité c'est, puis on l'ajoute à la liste de la 
+		map correspondante. clée : 1 pour la liste des soldats, 2 poru les archers. */
+		switch(newUnite.getClass().getName()) {
+		case "Soldat":
+			this.troupes.get(1).add(newUnite);
+			System.out.println("Ajout d'un soldat au joueur " + this.pseudo);
+			break;
+		case "Archer":
+			this.troupes.get(2).add(newUnite);
+			System.out.println("Ajout d'un archer au joueur " + this.pseudo);
+		break;
+		default : 
+			System.out.println("Erreur dans l'ajout de troupe, l'unité n'a pas un type conforme.");
+			break;
+		}
+	}
+	
+	/*
+	public void ajouterSoldat(Soldat newSoldat) {
+		this.troupes.get(1).add(newSoldat);
+	}
+	
+	public void ajouterSoldat(Archer newArcher) {
+		this.troupes.get(1).add(newArcher);
+	}
+	*/
 }
