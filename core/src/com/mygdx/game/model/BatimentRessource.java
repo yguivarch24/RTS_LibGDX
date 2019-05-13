@@ -35,16 +35,6 @@ public class BatimentRessource extends Batiment {
 	public int getRessource() {
 		return this.ressource.getRessources();
 	}
-	/*
-	public void batimentGainRessource(){
-		this.ressource.ajouter(this.environnement.collecter(productionParTour));
-		//TODO Retirer ressource à l'environnement
-	}
-	
-	public void joueurRecupere() {
-		//TODO Ajouter toutes les ressources contenues dans le bâtiment au joueur possédant le bâtiment
-		//TODO Retirer toutes les ressources contenues dans le bâtiment
-	}
 	
 	/*static public Batiment construire(int x, int y, String name, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
 		// Enlever les ressources au joueur
