@@ -39,7 +39,6 @@ public class MapOption implements Screen {
     private final TextButton on = new TextButton("on",skin);
     private final TextButton off = new TextButton("off",skin);
     private final TextButton rtn = new TextButton("Return",skin);
-    private final Music mp3Music = Gdx.audio.newMusic(Gdx.files.internal("GloriousMorning.mp3"));
 
 	    /** Constructeur */
 	    public MapOption( MyGdxGameRTSLauncher pgame) {
@@ -70,13 +69,13 @@ public class MapOption implements Screen {
 	        table.row();
 
 	        stage.addActor(table);
-	        mp3Music.setLooping(true);
+	        game.mp3Music.setLooping(true);
 
 	        on.addListener(new ClickListener(){
 	            @Override
 	            /** Listener sur le bouton startGame*/
 	            public void clicked(InputEvent event, float x, float y) {
-	                mp3Music.play();
+	                game.mp3Music.play();
 	            }
 	        });
 	        
@@ -84,7 +83,7 @@ public class MapOption implements Screen {
 	        	@Override
 	            /** Listener sur le bouton options*/
 	            public void clicked(InputEvent event, float x, float y) {
-	                mp3Music.pause();
+	                game.mp3Music.pause();
 	            }
 	        });
 

@@ -31,7 +31,6 @@ public class MainMenuScreen implements Screen {
     private final TextButton startGame = new TextButton("start game",skin);
     private final TextButton options = new TextButton("options",skin);
     private final TextButton quit = new TextButton("quit",skin);
-    private final Music mp3Music = Gdx.audio.newMusic(Gdx.files.internal("GloriousMorning.mp3"));
 
 
     // Constructeur, permet de garder une référence sur la classe principale Game
@@ -60,15 +59,15 @@ public class MainMenuScreen implements Screen {
         table.row();
 
         stage.addActor(table);
-        mp3Music.play();
-        mp3Music.setLooping(true);
+        game.mp3Music.play();
+        game.mp3Music.setLooping(true);
 
         startGame.addListener(new ClickListener(){
             @Override
             /** Listener sur le bouton startGame*/
             public void clicked(InputEvent event, float x, float y) {
                 startGame.addAction(Actions.fadeOut(0.7f));
-                mp3Music.stop();
+                game.mp3Music.stop();
                 Gdx.input.setInputProcessor(game.map1.stage);
                 game.setScreen(game.map1);
             }
