@@ -23,6 +23,12 @@ public class LiveObject extends GameObject {
 	private int defense;
 	/** La statistique de portÃ©e d'attaque d'un objet */ 
 	private int portee;
+	/** Cout à payer en or pour obtenir l'objet */
+	private int coutOr;
+	/** Cout à payer en Bois pour obtenir l'objet */
+	private int coutBois;
+	/** Cout à payer en Nourriture pour obtenir l'objet */
+	private int coutNourriture;
 	
 	/** Constructeur d'un objet vivant, initialise ses statistiques et sa position.
 	 *
@@ -32,7 +38,8 @@ public class LiveObject extends GameObject {
 	 * @param defense Statistique  inital de dÃ©fense de l'objet
 	 * @param portee Statistique initial de portÃ©e d'effet de l'objet
 	 */
-    public LiveObject(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, int portee) {
+    public LiveObject(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, 
+    		int portee, int or, int bois, int nourriture) {
         super(x, y, name);
         this.joueur = joueur;
         this.vieMax = vieMax;
@@ -40,6 +47,9 @@ public class LiveObject extends GameObject {
         this.attaque = attaque;
         this.defense = defense;
         this.portee = portee;
+        this.coutOr = or;
+        this.coutBois = bois;
+        this.coutNourriture = nourriture;
     }
 
 	/** Fonction permettant de retirer les points de vie d'un objet.
@@ -82,6 +92,28 @@ public class LiveObject extends GameObject {
 	 public int getPortee(){
 		 return this.portee;
 	 }
+	 
+	 /** Permet d'obtenir le cout en or d'un objet.
+	  * @return La valeur du cout en or.
+	  */
+	 public int getCoutOr() {
+		 return coutOr;
+	 }
+	 
+	 /** Permet d'obtenir le cout en bois d'un objet.
+	  * @return La valeur du cout en bois.
+	  */
+	 public int getCoutBois() {
+		 return coutBois;
+	 }
+	 
+	 /** Permet d'obtenir le cout en nourriture d'un objet.
+	  * @return La valeur du cout en nourriture.
+	  */
+	 public int getCoutNourriture() {
+		 return coutNourriture;
+	 }
+	 
 
 	 /** Informe si notre ï¿½ la portï¿½e pour attaquï¿½ une certaine cible.
 	  * 

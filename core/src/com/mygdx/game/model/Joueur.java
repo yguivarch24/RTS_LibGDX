@@ -13,11 +13,11 @@ public class Joueur {
 	//private Strategie strategie;
 	
 	/** La 1e ressource et son montant associÃ©es au joueur */
-	private Ressource nourriture;
+	private Ressource or;
 	/** La 2e ressource et son montant associÃ©es au joueur */
 	private Ressource bois;
 	/** La 3e ressource et son montant associÃ©es au joueur */
-	private Ressource or;
+	private Ressource nourriture;
 	
 	/** Liste des troupes appartenant aux joueur. Chaque types d'unitï¿½ est associï¿½e ï¿½ 
 	 * une clï¿½e (un nombre entier) comme ceci :
@@ -28,25 +28,43 @@ public class Joueur {
 	private List<Batiment> batiments;
  
 	
-	public Joueur(String pseudo, Ressource ressource1, Ressource ressource2, Ressource ressource3) {
+	public Joueur(String pseudo) {
 		this.pseudo = pseudo;
-		this.nourriture = ressource1;
-		this.bois = ressource2;
-		this.or = ressource3;
+		this.or = new Or(100);
+		this.bois = new Bois(50);
+		this.nourriture = new Nourriture(50);
 		this.troupes = new HashMap();
 		this.batiments = new ArrayList();
 	}
 	
 	/** Permet d'initaliser le tour d'un joueur. (initialise les unite, les ressources etc...) */
 	public void initTourJoueur() {
+		// Regénération des pdv des unités en début de tour.
 		troupes.forEach((t, listeUnite) ->  {
 			listeUnite.forEach(unite -> {
 				unite.initTourUnite();
 			});
 		});
 		
-		// TODO Le gain en ressource du dï¿½but de tour
+		// Ajout des ressources en début de tour pour chaque batiment de récolte.
+		batiments.forEach(bat -> {
+			if(bat instanceof Mine) {
+				this.or.ajouter(((Mine) bat).getProduction());
+			} else if(bat instanceof Scierie) {
+				this.bois.ajouter(((Scierie) bat).getProduction());
+			} else if(bat instanceof Ferme) {
+				this.nourriture.ajouter(((Ferme) bat).getProduction());
+			}
+		});
 	}
+	
+	public void payer(int coutNourriture, int coutBois, int coutOr) throws RessourceIndisponibleException {
+		this.nourriture.retirer(coutNourriture);
+		this.bois.retirer(coutBois);
+		this.or.retirer(coutOr);
+	}
+	
+	
 	
 	public String getPseudo() {
 		return this.pseudo;
@@ -153,14 +171,4 @@ public class Joueur {
 			break;
 		}
 	}
-	
-	/*
-	public void ajouterSoldat(Soldat newSoldat) {
-		this.troupes.get(1).add(newSoldat);
-	}
-	
-	public void ajouterSoldat(Archer newArcher) {
-		this.troupes.get(1).add(newArcher);
-	}
-	*/
 }

@@ -22,8 +22,9 @@ public class BatimentRessource extends Batiment {
 	 * @param defense Statistique  inital de défense de l'objet
 	 * @param portee Statistique initial de portée d'effet de l'objet
 	 */
-	public BatimentRessource(int x, int y, String name, Joueur joueur, Ressource res, int vieMax, int vie, int attaque, int defense, int portee, int nbderessourceinitial, int productionparTour) {
-		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee);
+	public BatimentRessource(int x, int y, String name, Joueur joueur, Ressource res, int vieMax, int vie, int attaque, 
+			int defense, int portee, int nbderessourceinitial, int productionparTour, int or, int bois, int nourriture) {
+		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee, or, bois, nourriture);
 		this.ressource = res;
 		this.productionParTour = productionparTour;
 	}

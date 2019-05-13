@@ -15,8 +15,9 @@ abstract public class Batiment extends LiveObject {
 	 * @param defense Statistique  inital de défense de l'objet
 	 * @param portee Statistique initial de portée d'effet de l'objet
 	 */
-	public Batiment(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, int portee) {
-		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee);
+	public Batiment(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, 
+			int defense, int portee, int or, int bois, int nourriture) {
+		super(x, y, name, joueur, vieMax, vie, attaque, defense, portee, or, bois, nourriture);
 	}
 
 }

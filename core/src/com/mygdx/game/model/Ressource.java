@@ -48,5 +48,4 @@ public class Ressource {
 		this.quantiteRessource += quantite;
 	}
 	
-
 }

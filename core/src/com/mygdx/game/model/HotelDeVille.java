@@ -9,7 +9,7 @@ public class HotelDeVille extends Batiment {
 	 * @param Joueur a qui appartient l'hotel de ville
 	*/
 	public HotelDeVille(int x, int y, Joueur joueur) {
-			super(x,y,"Hotel de ville",joueur,1000,1000,0,20,0);
+			super(x,y,"Hotel de ville",joueur,1000,1000,0,20,0,0,0,0);
 	}
 
 }
