@@ -77,8 +77,6 @@ public class MapOption implements Screen {
 	            /** Listener sur le bouton startGame*/
 	            public void clicked(InputEvent event, float x, float y) {
 	                mp3Music.play();
-	                Gdx.input.setInputProcessor(game.mapOption.stage);
-	                game.setScreen(game.mapOption);
 	            }
 	        });
 	        
@@ -86,9 +84,7 @@ public class MapOption implements Screen {
 	        	@Override
 	            /** Listener sur le bouton options*/
 	            public void clicked(InputEvent event, float x, float y) {
-	                mp3Music.stop();
-	                Gdx.input.setInputProcessor(game.mapOption.stage);
-	                game.setScreen(game.mapOption);
+	                mp3Music.pause();
 	            }
 	        });
 

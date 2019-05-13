@@ -77,7 +77,6 @@ public class MainMenuScreen implements Screen {
         	@Override
             /** Listener sur le bouton options*/
             public void clicked(InputEvent event, float x, float y) {
-        		mp3Music.stop();
                 Gdx.input.setInputProcessor(game.mapOption.stage);
                 game.setScreen(game.mapOption);
             }
