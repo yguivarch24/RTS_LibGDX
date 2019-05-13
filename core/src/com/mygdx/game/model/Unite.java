@@ -6,7 +6,7 @@ abstract public class Unite extends LiveObject {
 	private int nbDeplacementMax;
 	/** Le nombre de points de mouvement restants durant un tour. */
 	private int nbDeplacementRestant;
-	/** Le nombre de points de vie regénéré en début de tour. */
+	/** Le nombre de points de vie regï¿½nï¿½rï¿½ en dï¿½but de tour. */
 	private int regenVieTour;
 
 	/** Constructeur d'un objet vivant, initialise ses statistiques et sa position.
@@ -24,10 +24,10 @@ abstract public class Unite extends LiveObject {
 	// Faut-il dï¿½placer par rapport ï¿½ des valeurs de x et y ï¿½ ajouter ï¿½ la pos,
 	// Ou faut t'il donner une cellule de la map et se dï¿½placer vers cette cellule ?
 	// Il faut encore vï¿½rifier que la case n'est pas occupï¿½, et lever l'exception sinon.
-	public void deplacer(int x, int y) throws DeplacementInvalideException, CaseOccupeeException {
-		if((x + y) <= nbDeplacementRestant) {
-			this.x += x;
-			this.y -= y;
+	public void deplacer(int dx, int dy) throws DeplacementInvalideException, CaseOccupeeException {
+		if((dx + dy) <= nbDeplacementRestant) {
+			this.x += dx;
+			this.y -= dy;
 		} else {
 			throw new DeplacementInvalideException("Pas assez de points de mouvement");
 		}
@@ -36,7 +36,7 @@ abstract public class Unite extends LiveObject {
 	public void initTourUnite() {
 		// Reset des points de mouvements
 		this.nbDeplacementRestant = this.nbDeplacementMax;
-		// Regeneration de vie de début de tour.
+		// Regeneration de vie de dï¿½but de tour.
 		if(this.vie <= regenVieTour) {
 			this.vie += this.vieMax - this.vie;
 		} else { this.regenVieTour += regenVieTour;}

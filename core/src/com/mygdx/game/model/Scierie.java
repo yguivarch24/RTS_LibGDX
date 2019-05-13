@@ -9,8 +9,8 @@ public class Scierie extends BatimentRessource {
 	 * @param y Position en y initial de l'objet
 	 * @param Joueur a qui appartient la ferme
 */
-	public Scierie(int x, int y, Joueur joueur) {
-		super(x,y,"Scierie",joueur,100,100,0,20,0,1000,5);
+	public Scierie(int x, int y, Joueur joueur, Ressource res) {
+		super(x,y,"Scierie",joueur,res,100,100,0,20,0,1000,5);
 	}
 }
 

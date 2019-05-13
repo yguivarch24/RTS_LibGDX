@@ -9,7 +9,7 @@ public class Ferme extends BatimentRessource {
 	 * @param y Position en y initial de l'objet
 	 * @param Joueur a qui appartient la ferme
 */
-	public Ferme(int x, int y, Joueur joueur) {
-		super(x,y,"Ferme",joueur,100,100,0,20,0,1000,5);
+	public Ferme(int x, int y, Joueur joueur, Ressource res) {
+		super(x,y,"Ferme",joueur,res,100,100,0,20,0,1000,5);
 	}
 }

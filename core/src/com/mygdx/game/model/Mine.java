@@ -10,7 +10,7 @@ public class Mine extends BatimentRessource {
 	 * @param y Position en y initial de l'objet
 	 * @param Joueur a qui appartient la mine
 */
-	public Mine(int x, int y, Joueur joueur) {
-		super(x,y,"Mine",joueur,100,100,0,20,0,1000,5);
+	public Mine(int x, int y, Joueur joueur, Ressource res) {
+		super(x,y,"Mine",joueur,res,100,100,0,20,0,1000,5);
 	}
 }
