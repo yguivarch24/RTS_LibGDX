@@ -20,6 +20,9 @@ public class Partie {
 	/** Joueur courant dont c'est le tour de jouer. */
 	private Joueur joueurCourant;
 	
+	/** Numéro du tour de jeu courant */
+	private int nbTour;
+	
 	
 	/** Cosntructuer de la partie. Initialise le nombre de joueurs et la lsite de joueurs.
 	 * 
@@ -29,7 +32,7 @@ public class Partie {
 		nbJoueur = nbJ;
 		listeJoueurs = new ArrayList(nbJ);
 		indexJoueurCourant = 1;
-		
+		nbTour = 1;
 	}
 	
 	public void tourDeJeu() {
@@ -59,6 +62,21 @@ public class Partie {
 	public void joueurSuivant() {
 		if(indexJoueurCourant >= nbJoueur) {
 			indexJoueurCourant = 1;
+			nbTour ++;
 		} else { indexJoueurCourant ++;}
+	}
+	
+	/** Permet d'obtenir le joueur courant. 
+	 * @return Le joueur courant
+	 * */
+	public Joueur getJoueur() {
+		return joueurCourant;
+	}
+	
+	/** Permet d'obtenir le numéro de tour de jeu courant.
+	 * @return le numéro de tour. 
+	 *  */
+	public int getNbTour() {
+		return nbTour;
 	}
 }
