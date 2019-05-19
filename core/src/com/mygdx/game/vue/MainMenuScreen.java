@@ -28,9 +28,9 @@ public class MainMenuScreen implements Screen {
     private final Skin skin = new Skin( Gdx.files.internal( "defaultskin.json" ));
     Stage stage;
     private Table table;
-    private final TextButton startGame = new TextButton("start game",skin);
-    private final TextButton options = new TextButton("options",skin);
-    private final TextButton quit = new TextButton("quit",skin);
+    private final TextButton startGame = new TextButton("Start game",skin);
+    private final TextButton options = new TextButton("Sound",skin);
+    private final TextButton quit = new TextButton("Quit",skin);
 
 
     // Constructeur, permet de garder une référence sur la classe principale Game
@@ -40,7 +40,7 @@ public class MainMenuScreen implements Screen {
         texture = new Texture(Gdx.files.internal("backgroundMenu.jpg"));
         /** Pour le menu */
         stage=new Stage(new FitViewport(800,480,new OrthographicCamera())); //stage permet la gestion des fenêtres ?
-        /**Pour déssiner l'image */
+        /**Pour dessiner l'image */
         spriteBatch = new SpriteBatch();
 
         /** Indiquer que le stage est intéractif */

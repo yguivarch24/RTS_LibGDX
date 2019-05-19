@@ -41,13 +41,10 @@ public class Map1 implements Screen {
 
         tiledMap = new TmxMapLoader().load("Tiles/grass_tileset_map.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-        LiveObject soldat = new Soldat(0, 0, this.joueur);
-        LiveObjectActor vuesoldat = new LiveObjectActor(soldat);
         stage = new TiledMapStage(tiledMap);
         stage.getViewport().setCamera(camera);
         stage.getViewport().setScreenX(0);
         stage.getViewport().setScreenY(0);
-        stage.addActor(vuesoldat);
     }
     
     /** Rafraichir*/
