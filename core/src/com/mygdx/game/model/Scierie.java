@@ -9,8 +9,8 @@ public class Scierie extends BatimentRessource {
 	 * @param y Position en y initial de l'objet
 	 * @param Joueur a qui appartient la ferme
 */
-	public Scierie(int x, int y, Joueur joueur, Ressource res) {
-		super(x,y,"Scierie",joueur,res,100,100,0,20,0,1000,5,10,15,0);
+	public Scierie(int x, int y, Carte carte, Joueur joueur, Ressource res) throws CaseOccupeeException {
+		super(x,y, carte, "Scierie",joueur,res,100,100,0,20,0,1000,5,10,15,0);
 	}
 }
 

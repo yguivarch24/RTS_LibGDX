@@ -38,8 +38,8 @@ public class LiveObject extends GameObject {
 	 * @param defense Statistique  inital de défense de l'objet
 	 * @param portee Statistique initial de portée d'effet de l'objet
 	 */
-    public LiveObject(int x, int y, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, 
-    		int portee, int or, int bois, int nourriture) {
+    public LiveObject(int x, int y, Carte carte, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, 
+    		int portee, int or, int bois, int nourriture) throws CaseOccupeeException {
         super(x, y, name);
         this.joueur = joueur;
         this.vieMax = vieMax;
@@ -50,6 +50,7 @@ public class LiveObject extends GameObject {
         this.coutOr = or;
         this.coutBois = bois;
         this.coutNourriture = nourriture;
+        carte.setLiveObject(x, y, this);
     }
 
 	/** Fonction permettant de retirer les points de vie d'un objet.

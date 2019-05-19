@@ -8,8 +8,8 @@ public class HotelDeVille extends Batiment {
 	 * @param y Position en y initial de l'objet
 	 * @param Joueur a qui appartient l'hotel de ville
 	*/
-	public HotelDeVille(int x, int y, Joueur joueur) {
-			super(x,y,"Hotel de ville",joueur,1000,1000,0,20,0,0,0,0);
+	public HotelDeVille(int x, int y, Carte carte, Joueur joueur) throws CaseOccupeeException {
+			super(x,y, carte, "Hotel de ville",joueur,1000,1000,0,20,0,0,0,0);
 	}
 
 }

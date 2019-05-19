@@ -20,6 +20,9 @@ public class Partie {
 	/** Joueur courant dont c'est le tour de jouer. */
 	private Joueur joueurCourant;
 	
+	/** Carte de la partie */
+	private Carte carte;
+	
 	/** Numéro du tour de jeu courant */
 	private int nbTour;
 	
@@ -31,6 +34,7 @@ public class Partie {
 	public Partie(int nbJ) {
 		nbJoueur = nbJ;
 		listeJoueurs = new ArrayList(nbJ);
+		carte = new Carte(50); 
 		indexJoueurCourant = 1;
 		nbTour = 1;
 	}
@@ -40,10 +44,10 @@ public class Partie {
 	}
 	
 	/** Permet d'initialiser la partie : hdv de chaque joueur. */
-	public void initPartie() {
+	public void initPartie() throws CaseOccupeeException {
 		listeJoueurs.forEach(j -> {
 			// Création de l'hotel de ville
-			HotelDeVille hdv = new HotelDeVille(1,2,j);
+			HotelDeVille hdv = new HotelDeVille(1,2, carte, j);
 			j.ajouterBatiment(hdv);
 		});
 	}
@@ -79,4 +83,10 @@ public class Partie {
 	public int getNbTour() {
 		return nbTour;
 	}
+	
+	/** Getter de la carte */
+	public Carte getCarte() {
+		return carte;
+	}
+	
 }
