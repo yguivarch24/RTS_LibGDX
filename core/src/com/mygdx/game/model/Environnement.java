@@ -3,7 +3,7 @@ package com.mygdx.game.model;
 public abstract class Environnement extends  GameObject implements ComposantCarte {
 
 	/** Le LiveObject de la case */
-	LiveObject object;
+	private LiveObject object;
 
 	public Environnement(int x, int y, String name, LiveObject object) {
 		super(x, y, name);
@@ -23,4 +23,15 @@ public abstract class Environnement extends  GameObject implements ComposantCart
 			return true;
 		}
 	}
+	
+	/** Définir un LiveObject sur ce composant de carte */
+	public void setLiveObject(LiveObject object) {
+		this.object = object;
+	}
+	
+	/** Retourne le LiveObject sur l'environnement */
+	public LiveObject getLiveObject() {
+		return this.object;
+	}
+	
 }

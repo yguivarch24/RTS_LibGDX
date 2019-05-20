@@ -2,18 +2,20 @@ package com.mygdx.game.model;
 
 public abstract class EnvironnementCollectable extends Environnement implements Collectable {
     
-	public EnvironnementCollectable(int x, int y, String name) {
+	/** La ressource de la case */
+    private Ressource ressource;
+	
+    public EnvironnementCollectable(int x, int y, String name, Ressource ressource) {
 		super(x, y, name);
-		// TODO Auto-generated constructor stub
+		this.ressource = ressource;
 	}
 	
-	public EnvironnementCollectable(int x, int y, String name, LiveObject object) {
+	public EnvironnementCollectable(int x, int y, String name, LiveObject object, Ressource ressource) {
 		super(x, y, name, object);
+		this.ressource = ressource;
 	}
 
-	/** La ressource de la case */
-    Ressource ressource;
-
+	
     /** Obtenir l'état de la case pour les ressources (contient/vide)*/
     public boolean ressourceEstEpuise(){
         if (ressource.getRessources() == 0){
@@ -38,3 +40,4 @@ public abstract class EnvironnementCollectable extends Environnement implements 
 	}
     
 }
+

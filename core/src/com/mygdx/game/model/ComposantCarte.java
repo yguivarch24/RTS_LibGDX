@@ -9,8 +9,11 @@ public interface ComposantCarte {
 
 	/** Obtenir l'état d'une case pour les LiveObject (occupée/vide) */
 	public boolean estOccupee();
-
-	/** Actions qui pourront être effectué sur cette carte*/
-	public boolean action();
+	
+	/** Définir un LiveObject sur ce composant de carte */
+	public void setLiveObject(LiveObject object);
+	
+	/** Retourne le LiveObject sur l'environnement */
+	public LiveObject getLiveObject();
 
 }

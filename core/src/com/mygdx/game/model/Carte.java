@@ -31,4 +31,24 @@ public class Carte {
 	public ComposantCarte[][] getGrille() {
 		return grille;
 	}
+	
+	public ComposantCarte getComposantCarte(int x, int y) {
+		return this.grille[x][y];
+	}
+	
+	public LiveObject getLiveObject(int x, int y) {
+		return this.grille[x][y].getLiveObject();
+	}
+	
+	public boolean estOccupee(int x, int y) {
+		return this.grille[x][y].estOccupee();
+	}
+	
+	public void setLiveObject(int x, int y, LiveObject object) throws CaseOccupeeException {
+		if (this.estOccupee(x,y)) {
+			throw new CaseOccupeeException("Error setLiveObject de Carte : il y a déjà un LiveObject sur cette case");
+		}
+		this.grille[x][y].setLiveObject(object);
+	}
+	
 }
