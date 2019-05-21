@@ -9,15 +9,10 @@ public class Plage extends Environnement{
 
     public Plage(int x, int y) {
         super(x, y, "Plage");
-        object = null;
     }
 
     public Plage(int x, int y, LiveObject object) {
         super(x, y, "Plage", object);
     }
 
-    @Override
-    public boolean action() {
-        return true;
-    }
 }

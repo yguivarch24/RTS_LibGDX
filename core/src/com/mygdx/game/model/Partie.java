@@ -44,11 +44,15 @@ public class Partie {
 	}
 	
 	/** Permet d'initialiser la partie : hdv de chaque joueur. */
-	public void initPartie() throws CaseOccupeeException {
+	public void initPartie() {
 		listeJoueurs.forEach(j -> {
 			// Création de l'hotel de ville
-			HotelDeVille hdv = new HotelDeVille(1,2, carte, j);
-			j.ajouterBatiment(hdv);
+			try {
+				HotelDeVille hdv = new HotelDeVille(1,2, carte, j);
+				j.ajouterBatiment(hdv);
+			} catch (CaseOccupeeException e1) {
+				System.out.println("Pas de place pour l'HDV \n");
+			}
 		});
 	}
 	

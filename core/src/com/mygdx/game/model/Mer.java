@@ -9,15 +9,10 @@ public class Mer extends Environnement{
 
     public Mer(int x, int y) {
         super(x, y, "Mer");
-        object = null;
     }
 
     public Mer(int x, int y, LiveObject object) {
         super(x, y, "Mer", object);
     }
 
-    @Override
-    public boolean action() {
-        return true;
-    }
 }
