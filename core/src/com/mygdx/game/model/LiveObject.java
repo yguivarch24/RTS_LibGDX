@@ -23,11 +23,11 @@ public class LiveObject extends GameObject {
 	private int defense;
 	/** La statistique de portÃ©e d'attaque d'un objet */ 
 	private int portee;
-	/** Cout à payer en or pour obtenir l'objet */
+	/** Cout ï¿½ payer en or pour obtenir l'objet */
 	private int coutOr;
-	/** Cout à payer en Bois pour obtenir l'objet */
+	/** Cout ï¿½ payer en Bois pour obtenir l'objet */
 	private int coutBois;
-	/** Cout à payer en Nourriture pour obtenir l'objet */
+	/** Cout ï¿½ payer en Nourriture pour obtenir l'objet */
 	private int coutNourriture;
 	
 	/** Constructeur d'un objet vivant, initialise ses statistiques et sa position.
@@ -115,6 +115,13 @@ public class LiveObject extends GameObject {
 		 return coutNourriture;
 	 }
 	 
+	 /** Renvoi le joueur associer Ã  l'objet.
+	  * 
+	  * @return le Joueur
+	  */
+	 public Joueur getJoueur() {
+		 return this.joueur;
+	 }
 
 	 /** Informe si notre ï¿½ la portï¿½e pour attaquï¿½ une certaine cible.
 	  * 

@@ -1,4 +1,5 @@
 package com.mygdx.game.model;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,27 +27,31 @@ public class Joueur {
 	private Map<Integer, List<Unite>> troupes;
 	/** Liste des batiments appartenant aux joueur. */
 	private List<Batiment> batiments;
+	
+	/** Coleur du joueur */
+	private Color couleur;
  
 	
-	public Joueur(String pseudo) {
+	public Joueur(String pseudo, Color coul) {
 		this.pseudo = pseudo;
 		this.or = new Or(100);
 		this.bois = new Bois(50);
 		this.nourriture = new Nourriture(50);
 		this.troupes = new HashMap();
 		this.batiments = new ArrayList();
+		this.couleur = coul;
 	}
 	
 	/** Permet d'initaliser le tour d'un joueur. (initialise les unite, les ressources etc...) */
 	public void initTourJoueur() {
-		// Regénération des pdv des unités en début de tour.
+		// Regï¿½nï¿½ration des pdv des unitï¿½s en dï¿½but de tour.
 		troupes.forEach((t, listeUnite) ->  {
 			listeUnite.forEach(unite -> {
 				unite.initTourUnite();
 			});
 		});
 		
-		// Ajout des ressources en début de tour pour chaque batiment de récolte.
+		// Ajout des ressources en dï¿½but de tour pour chaque batiment de rï¿½colte.
 		batiments.forEach(bat -> {
 			if(bat instanceof Mine) {
 				this.or.ajouter(((Mine) bat).getProduction());
@@ -170,5 +175,19 @@ public class Joueur {
 			System.out.println("Erreur dans l'ajout de troupe, l'unitï¿½ n'a pas un type conforme.");
 			break;
 		}
+	}
+	
+	/** Renvoi la couleur associer au joueur 
+	 * @return la couleur du joueur
+	 * */
+	public Color getCouleur() {
+		return this.couleur;
+	}
+	
+	/** Change la couleur associer au joueur 
+	 * @param coul la nouvelle couleur du joueur
+	 * */
+	public void setCouleur(Color coul) {
+		this.couleur = coul;
 	}
 }

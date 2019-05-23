@@ -1,6 +1,7 @@
 package com.mygdx.game.model;
 import java.util.List;
 import java.util.Observable;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ public class Partie {
 	/** Liste des joueurs dans la partie */ 
 	private List<Joueur> listeJoueurs;
 	
-	/** N° D'index du joueur courant dans la liste. */
+	/** Nï¿½ D'index du joueur courant dans la liste. */
 	private int indexJoueurCourant;
 	/** Joueur courant dont c'est le tour de jouer. */
 	private Joueur joueurCourant;
@@ -23,7 +24,7 @@ public class Partie {
 	/** Carte de la partie */
 	private Carte carte;
 	
-	/** Numéro du tour de jeu courant */
+	/** Numï¿½ro du tour de jeu courant */
 	private int nbTour;
 	
 	
@@ -46,7 +47,7 @@ public class Partie {
 	/** Permet d'initialiser la partie : hdv de chaque joueur. */
 	public void initPartie() {
 		listeJoueurs.forEach(j -> {
-			// Création de l'hotel de ville
+			// Crï¿½ation de l'hotel de ville
 			try {
 				HotelDeVille hdv = new HotelDeVille(1,2, carte, j);
 				j.ajouterBatiment(hdv);
@@ -54,18 +55,24 @@ public class Partie {
 				System.out.println("Pas de place pour l'HDV \n");
 			}
 		});
+		
+		/* Pour le moment on n'aura que 2 joueur, un bleu et rouge */
+		Joueur j1 = new Joueur("joueur1", Color.blue);
+		Joueur j2 = new Joueur("joueur2", Color.red);
+		this.ajouterJoueur(j1);
+		this.ajouterJoueur(j1);
 	}
 	
-	/** Permet d'ajouter un joueur à la partie. (Normalement uniquement utiliser lors de la création de la partie)
+	/** Permet d'ajouter un joueur ï¿½ la partie. (Normalement uniquement utiliser lors de la crï¿½ation de la partie)
 	 * 
-	 * @param newJoueur Le joueur à ajouter à la partie.
+	 * @param newJoueur Le joueur ï¿½ ajouter ï¿½ la partie.
 	 */
 	public void ajouterJoueur(Joueur newJoueur) {
 		listeJoueurs.add(newJoueur);
 	}
 	
-	/** Permet de définir quel joueur doit jouer. Le tour des joueurs suit un ordre définit
-	 * lors de la création de la partie par les joueurs.
+	/** Permet de dï¿½finir quel joueur doit jouer. Le tour des joueurs suit un ordre dï¿½finit
+	 * lors de la crï¿½ation de la partie par les joueurs.
 	 */
 	public void joueurSuivant() {
 		if(indexJoueurCourant >= nbJoueur) {
@@ -81,8 +88,8 @@ public class Partie {
 		return joueurCourant;
 	}
 	
-	/** Permet d'obtenir le numéro de tour de jeu courant.
-	 * @return le numéro de tour. 
+	/** Permet d'obtenir le numï¿½ro de tour de jeu courant.
+	 * @return le numï¿½ro de tour. 
 	 *  */
 	public int getNbTour() {
 		return nbTour;
