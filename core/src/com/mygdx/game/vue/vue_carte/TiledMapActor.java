@@ -23,7 +23,6 @@ public class TiledMapActor extends Actor {
     public TiledMapActor(TiledMap tiledMap, TiledMapTileLayer tiledLayer, int x, int y) {
         this.tiledMap = tiledMap;
         this.tiledLayer = tiledLayer;
-        System.out.println(tiledLayer.getCell(x, y).getTile().getId());
         switch (tiledLayer.getCell(x, y).getTile().getId()) {
             case 257 : 
             	cellule = new Foret(x,y);
