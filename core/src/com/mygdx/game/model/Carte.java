@@ -9,15 +9,12 @@ import java.util.List;
 public class Carte {
 	
 	/**la taille de la carte */
-	int taille;
-	ComposantCarte grille [] [];
-	List<LiveObject> liveObjectList;
-
+	private int taille;
+	private ComposantCarte grille [] [];
 
 	public Carte(int n) {
 		taille = n;
 		grille = new ComposantCarte [n] [n];
-		liveObjectList = new ArrayList<LiveObject>();
 	}
 
 	public void dessinerCarte(SpriteBatch batch, Camera camera) {
@@ -38,6 +35,10 @@ public class Carte {
 	
 	public LiveObject getLiveObject(int x, int y) {
 		return this.grille[x][y].getLiveObject();
+	}
+	
+	public void setComposant(int x, int y, ComposantCarte c) {
+		grille[x][y] = c;
 	}
 	
 	public boolean estOccupee(int x, int y) {

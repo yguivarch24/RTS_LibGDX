@@ -23,8 +23,8 @@ import com.mygdx.game.model.Joueur;
 import com.mygdx.game.model.LiveObject;
 import com.mygdx.game.model.Soldat;
 import com.mygdx.game.model.Unite;
+import com.mygdx.game.vue.vue_carte.LiveObjectActor;
 import com.mygdx.game.vue.vue_carte.TiledMapStage;
-import com.mygdx.game.vue.vue_liveobject.LiveObjectActor;
 
 public class MapOption implements Screen {
 	

@@ -7,29 +7,37 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.mygdx.game.model.Partie;
 import com.mygdx.game.model.Joueur;
 import com.mygdx.game.model.LiveObject;
 import com.mygdx.game.model.Soldat;
 import com.mygdx.game.model.Unite;
+import com.mygdx.game.vue.vue_carte.LiveObjectActor;
 import com.mygdx.game.vue.vue_carte.TiledMapStage;
-import com.mygdx.game.vue.vue_liveobject.LiveObjectActor;
 
 public class Map1 implements Screen {
 
     private MyGdxGameRTSLauncher game;
     private SpriteBatch batch;
-    private Joueur joueur;
+   // private Joueur joueur;
+    
+    /** Notre partie à render */
+    private Partie partie;
+    
 
     TiledMapStage stage;
     TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
     OrthographicCamera camera;
+    
 
     /** Constructeur */
     public Map1(MyGdxGameRTSLauncher game) {
 
+    	
         this.game = game;
 
         float w = Gdx.graphics.getWidth();
@@ -40,11 +48,14 @@ public class Map1 implements Screen {
         camera.update();
 
         tiledMap = new TmxMapLoader().load("Tiles/grass_tileset_map.tmx");
+        int tailleMap = ((TiledMapTileLayer)tiledMap.getLayers().get(0)).getWidth();
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-        stage = new TiledMapStage(tiledMap);
+        partie = new Partie(2, tailleMap);
+        stage = new TiledMapStage(tiledMap, partie);
         stage.getViewport().setCamera(camera);
         stage.getViewport().setScreenX(0);
         stage.getViewport().setScreenY(0);
+        
     }
     
     /** Rafraichir*/
@@ -57,7 +68,6 @@ public class Map1 implements Screen {
         tiledMapRenderer.render();
         stage.act(delta);
         stage.draw();
-
     }
 
     @Override

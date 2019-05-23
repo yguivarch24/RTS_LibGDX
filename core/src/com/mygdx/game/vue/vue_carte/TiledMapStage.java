@@ -7,23 +7,33 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.game.model.Batiment;
 import com.mygdx.game.model.Carte;
+import com.mygdx.game.model.Joueur;
+import com.mygdx.game.model.Partie;
+import com.mygdx.game.model.Unite;
 
 
 public class TiledMapStage extends Stage {
 
     private TiledMap tiledMap;
 
-    private Carte carte;
+    private Partie partie;
 
     public static final int size = 16;
 
-    public TiledMapStage(TiledMap tiledMap) {
+    public TiledMapStage(TiledMap tiledMap, Partie p) {
+        partie = p;
+    	
+        //partie.setCarte(new Carte(((TiledMapTileLayer)tiledMap.getLayers().get(0)).getWidth()));
+    	
         this.tiledMap = tiledMap;
         for (MapLayer layer : tiledMap.getLayers()) {
             TiledMapTileLayer tiledLayer = (TiledMapTileLayer)layer;
             createActorsForLayer(tiledLayer);
         }
+
+        createLiveObjectActors();
     }
 
     private void createActorsForLayer(TiledMapTileLayer tiledLayer) {
@@ -35,9 +45,34 @@ public class TiledMapStage extends Stage {
                     addActor(actor);
                     EventListener eventListener = new TiledMapClickListener(actor);
                     actor.addListener(eventListener);
+                    partie.getCarte().setComposant(x, y, actor.cellule);
                 }
             }
         }
+        partie.initPartie();
+    }
+    
+    /** Nous permets de créer tous les acteurs liées à nos batiments et unités.
+     * Les acteurs liée au stage pourront ensutie être déssinés et affichés.
+     */
+    private void createLiveObjectActors() {
+    	for(Joueur j : partie.getJoueurs()) {
+        	for(Batiment bat : j.getBatiments()) {
+        		LiveObjectActor batActor = new LiveObjectActor(bat);
+        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+        		this.addActor(batActor);
+        	};
+        	for(Unite a : j.getArcher()) {
+        		LiveObjectActor archerActor = new LiveObjectActor(a);
+        		LiveObjectClickListener archerListener = new LiveObjectClickListener(archerActor);
+        		this.addActor(archerActor);
+        	};
+        	for(Unite s : j.getSoldat()) {
+        		LiveObjectActor soldatActor = new LiveObjectActor(s);
+        		LiveObjectClickListener soldatListener = new LiveObjectClickListener(soldatActor);
+        		this.addActor(soldatActor);
+        	};
+    	}
     }
 
     @Override

@@ -31,11 +31,12 @@ public class Partie {
 	/** Cosntructuer de la partie. Initialise le nombre de joueurs et la lsite de joueurs.
 	 * 
 	 * @param nbJ Nombre de joueurs de la partie.
+	 * @param tailleCarte la taille de la carte
 	 */
-	public Partie(int nbJ) {
+	public Partie(int nbJ, int tailleCarte) {
 		nbJoueur = nbJ;
 		listeJoueurs = new ArrayList(nbJ);
-		carte = new Carte(50); 
+		carte = new Carte(tailleCarte);
 		indexJoueurCourant = 1;
 		nbTour = 1;
 	}
@@ -46,21 +47,28 @@ public class Partie {
 	
 	/** Permet d'initialiser la partie : hdv de chaque joueur. */
 	public void initPartie() {
-		listeJoueurs.forEach(j -> {
-			// Cr�ation de l'hotel de ville
-			try {
-				HotelDeVille hdv = new HotelDeVille(1,2, carte, j);
-				j.ajouterBatiment(hdv);
-			} catch (CaseOccupeeException e1) {
-				System.out.println("Pas de place pour l'HDV \n");
-			}
-		});
-		
 		/* Pour le moment on n'aura que 2 joueur, un bleu et rouge */
 		Joueur j1 = new Joueur("joueur1", Color.blue);
 		Joueur j2 = new Joueur("joueur2", Color.red);
 		this.ajouterJoueur(j1);
 		this.ajouterJoueur(j1);
+		/*listeJoueurs.forEach(j -> {
+			 // Cr�ation de l'hotel de ville
+			try {
+				HotelDeVille hdv = new HotelDeVille(1,2, carte, j);
+				j.ajouterBatiment(hdv);
+			} catch (CaseOccupeeException e1) {
+				System.out.println("Pas de place pour l'HDV \n");
+			} 
+		});*/
+		try {
+			HotelDeVille hdv1 = new HotelDeVille(6,7, carte, j1);
+			j1.ajouterBatiment(hdv1);
+			HotelDeVille hdv2 = new HotelDeVille(7,8, carte, j2);
+			j1.ajouterBatiment(hdv2);
+		}catch(CaseOccupeeException e1) {
+			System.out.println("Pas de place pour l'HDV \n");
+		}
 	}
 	
 	/** Permet d'ajouter un joueur � la partie. (Normalement uniquement utiliser lors de la cr�ation de la partie)
@@ -88,6 +96,13 @@ public class Partie {
 		return joueurCourant;
 	}
 	
+	/** Permet d'obtenir la liste de joueurs 
+	 * @return Les joueurs
+	 * */
+	public List<Joueur> getJoueurs() {
+		return listeJoueurs;
+	}
+	
 	/** Permet d'obtenir le num�ro de tour de jeu courant.
 	 * @return le num�ro de tour. 
 	 *  */
@@ -98,6 +113,13 @@ public class Partie {
 	/** Getter de la carte */
 	public Carte getCarte() {
 		return carte;
+	}
+	
+	/** Setter de la carte 
+	 * @param c la carte
+	 * */
+	public void setCarte(Carte c) {
+		this.carte = c;
 	}
 	
 }

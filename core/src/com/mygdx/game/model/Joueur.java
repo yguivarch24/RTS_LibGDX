@@ -38,6 +38,8 @@ public class Joueur {
 		this.bois = new Bois(50);
 		this.nourriture = new Nourriture(50);
 		this.troupes = new HashMap();
+		troupes.put(1, new ArrayList<Unite>());
+		troupes.put(2, new ArrayList<Unite>());
 		this.batiments = new ArrayList();
 		this.couleur = coul;
 	}

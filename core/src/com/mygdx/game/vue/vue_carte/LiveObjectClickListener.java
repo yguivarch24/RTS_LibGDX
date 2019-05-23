@@ -1,4 +1,4 @@
-package com.mygdx.game.vue.vue_liveobject;
+package com.mygdx.game.vue.vue_carte;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
