@@ -54,7 +54,7 @@ abstract public class GameObject {
 	/**Obtenir le nom de l'objet
 	 * @return nom nomObjet
 	 */
-	public String getName() {
+	public String getName() { 
 		return this.name;
 	}
 

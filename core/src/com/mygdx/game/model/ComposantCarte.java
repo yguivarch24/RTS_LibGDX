@@ -17,5 +17,5 @@ public interface ComposantCarte {
 	public LiveObject getLiveObject();
 
 	public int getX();
-	public int getY();
+	public int getY(); 
 }

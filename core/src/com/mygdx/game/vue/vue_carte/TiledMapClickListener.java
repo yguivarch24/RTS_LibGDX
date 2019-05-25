@@ -27,7 +27,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    			unite_courante.deplacer(x,y);
 	    		} catch (DeplacementInvalideException e1) {
 	    			GlobalClickListener.objetSelec = null;
-	    		} catch (CaseOccupeeException e2) {
+	    		} catch (CaseOccupeeException e2) { 
 	    			GlobalClickListener.objetSelec = null;
 	    		}
 	    	} else if (actor.cellule instanceof Ressource) {

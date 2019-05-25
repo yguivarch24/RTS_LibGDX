@@ -39,6 +39,6 @@ public abstract class Environnement extends  GameObject implements ComposantCart
 	}
 	
 	public int getY() {
-		return getY();
+		return getY(); 
 	}
 }
