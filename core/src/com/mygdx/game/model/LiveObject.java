@@ -15,7 +15,7 @@ public class LiveObject extends GameObject {
 	/** La vie courante de l'objet */ 
 	protected int vie;
 	/** La statistique de dégat de l'objet */ 
-	private int attaque;
+	protected int attaque;
 	/** La statistique de défense de l'objet */ 
 	private int defense;
 	/** La statistique de portée d'attaque d'un objet */ 
@@ -86,26 +86,6 @@ public class LiveObject extends GameObject {
 		return((Math.abs(this.x - cible.getX()) + Math.abs(this.y - cible.getY())) <= this.portee);
 	}
 
-	/** Le LiveObjet attaque un autre. 
-	 * @param defenseur : l'attaqué
-	 * @throws HorsDePorteeException si la cible est hors de portée
-	 */
-	public void attaquer(LiveObject defenseur) throws HorsDePorteeException {
-		if(this.estAPorte(defenseur)) {
-			// mort du défenseur
-			if (defenseur.getVie() + defenseur.getDefense() - this.attaque < 0){
-				defenseur.retirerVie(defenseur.getVie());
-			}
-			//pas assez de points d'attaque
-			if (defenseur.getDefense()-this.attaque>=0){}
-			// dernier cas : on enlève les points d'attaque au défenceur
-			else{
-				defenseur.retirerVie(defenseur.getDefense()-this.attaque); 
-				}
-		} else {
-			throw new HorsDePorteeException("La cible est hors de portée");
-		}
-	}
 
 	/** Obtenir l'état de vie d'un objet. 
 	 * @return True si la cible est morte, False sinon
@@ -173,5 +153,9 @@ public class LiveObject extends GameObject {
 	  */
 	 public Joueur getJoueur() {
 		 return this.joueur;
+	 }
+	 
+	 public void attaquer(LiveObject defenseur) throws HorsDePorteeException, DejaAttaqueException {
+		 
 	 }
 }

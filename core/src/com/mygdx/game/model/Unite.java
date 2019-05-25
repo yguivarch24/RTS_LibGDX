@@ -2,7 +2,6 @@ package com.mygdx.game.model;
 
 /** Classe abstraite représentant une unité.
  * Une unité est un LiveObject mobile. */
-
 abstract public class Unite extends LiveObject {
 	
 	/** Le nombre de points de mouvement que possède l'objet.	 */
@@ -11,6 +10,8 @@ abstract public class Unite extends LiveObject {
 	private int nbDeplacementRestant;
 	/** Le nombre de points de vie regénéré en début de tour. */
 	private int regenVieTour;
+	/** Si l'unité a déjà attaqué pour ce tour*/
+	private boolean dejaAttaque;
 
 	/** Constructeur d'un objet vivant, initialise ses statistiques et sa position.
 	 * @param x coordonnée en abscisse de l'objet
@@ -37,9 +38,36 @@ abstract public class Unite extends LiveObject {
 		this.nbDeplacementMax = nbDeplacementMax;
 		this.nbDeplacementRestant = nbDeplacementRestant;
 		this.regenVieTour = regen;
+		this.dejaAttaque = false;
 	}
 	
 	
+	/** Le LiveObjet attaque un autre. 
+	 * @param defenseur : l'attaqué
+	 * @throws HorsDePorteeException si la cible est hors de portée
+	 * @throws DejaAttaqueException si l'unité a déjà attaqué pendant le tour
+	 */
+	@Override 
+	public void attaquer(LiveObject defenseur) throws HorsDePorteeException, DejaAttaqueException {
+		if(this.estAPorte(defenseur)) {
+			if (dejaAttaque) {
+				throw new DejaAttaqueException("Cette unité a déjà attaqué pendant ce tour.");
+			}
+			// mort du défenseur
+			if (defenseur.getVie() + defenseur.getDefense() - this.attaque < 0){
+				defenseur.retirerVie(defenseur.getVie());
+			}
+			//pas assez de points d'attaque
+			if (defenseur.getDefense()-this.attaque>=0){}
+			// dernier cas : on enlève les points d'attaque au défenceur
+			else{
+				defenseur.retirerVie(defenseur.getDefense()-this.attaque); 
+				}
+		} else {
+			throw new HorsDePorteeException("La cible est hors de portée");
+		}
+	}
+
 	/** Fonction permettant de déplacer un objet.
 	 * @param dx déplacement selon les absisses
 	 * @param dy déplacement selon les ordonnées
@@ -61,6 +89,8 @@ abstract public class Unite extends LiveObject {
 	public void initTourUnite() {
 		// Reset des points de mouvements
 		this.nbDeplacementRestant = this.nbDeplacementMax;
+		// Reset de dejaAttaque
+		this.dejaAttaque = false;
 		// Regeneration de vie de début de tour.
 		if(this.vie < this.vieMax) {
 			if (this.vie + regenVieTour >= this.vieMax) {
@@ -72,3 +102,4 @@ abstract public class Unite extends LiveObject {
 	}
 
 }
+
