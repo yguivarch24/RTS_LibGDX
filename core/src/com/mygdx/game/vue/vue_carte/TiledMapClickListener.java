@@ -4,7 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.model.Plaine;
 
-public class TiledMapClickListener extends ClickListener {
+public class TiledMapClickListener extends GlobalClickListener {
 
     private TiledMapActor actor;
 
