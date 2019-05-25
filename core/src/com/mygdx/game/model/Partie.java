@@ -13,6 +13,7 @@ public class Partie {
 	/** Nombre de joueurs dans la partie */ 
 	private int nbJoueur;
 	
+	
 	/** Liste des joueurs dans la partie */ 
 	private List<Joueur> listeJoueurs;
 	

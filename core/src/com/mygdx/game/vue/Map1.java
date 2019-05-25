@@ -34,6 +34,7 @@ public class Map1 implements Screen {
     OrthographicCamera camera;
     
 
+    
     /** Constructeur */
     public Map1(MyGdxGameRTSLauncher game) {
 

@@ -19,6 +19,7 @@ public class TiledMapClickListener extends GlobalClickListener {
     }
 
     
+    
     public void action() {
     	if (!actor.cellule.estOccupee()) {
     		int x = actor.cellule.getX();
