@@ -15,6 +15,7 @@ public class TiledMapClickListener extends GlobalClickListener {
     @Override
     public void clicked(InputEvent event, float x, float y) {
         System.out.println(actor.cellule + " has been clicked.");
+        action();
     }
     
     public void action() {
