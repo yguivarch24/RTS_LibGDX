@@ -76,6 +76,7 @@ public class MapOption implements Screen {
 	            /** Listener sur le bouton startGame*/
 	            public void clicked(InputEvent event, float x, float y) {
 	                game.mp3Music.play();
+	                game.musicOn = true;
 	            }
 	        });
 	        
@@ -84,6 +85,7 @@ public class MapOption implements Screen {
 	            /** Listener sur le bouton options*/
 	            public void clicked(InputEvent event, float x, float y) {
 	                game.mp3Music.pause();
+	                game.musicOn = false;
 	            }
 	        });
 
