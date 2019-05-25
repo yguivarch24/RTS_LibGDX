@@ -68,6 +68,10 @@ public class MainMenuScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 startGame.addAction(Actions.fadeOut(0.7f));
                 game.mp3Music.stop();
+                game.mp3Music = Gdx.audio.newMusic(Gdx.files.internal("Map1Music.mp3"));
+                if(game.musicOn) {
+                	game.mp3Music.play();
+                }
                 Gdx.input.setInputProcessor(game.map1.stage);
                 game.setScreen(game.map1);
             }

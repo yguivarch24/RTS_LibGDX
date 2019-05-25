@@ -7,6 +7,7 @@ import com.badlogic.gdx.audio.Music;
 public class MyGdxGameRTSLauncher extends Game {
 
 	protected float musicVolume;
+	protected boolean musicOn;
 	protected MainMenuScreen mainMenuScreen;
 	protected Map1 map1;
 	protected MapOption mapOption;
@@ -15,6 +16,7 @@ public class MyGdxGameRTSLauncher extends Game {
 	@Override
 	public void create() {
 		musicVolume = 0.5f;
+		musicOn = true;
 	    mp3Music = Gdx.audio.newMusic(Gdx.files.internal("GloriousMorning.mp3"));
 		mainMenuScreen = new MainMenuScreen(this);
 		mapOption = new MapOption(this);

@@ -1,8 +1,10 @@
 package com.mygdx.game.vue.vue_carte;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -38,4 +40,11 @@ public class TiledMapActor extends Actor {
             	break;
         }
     }
+    
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+    	super.draw(batch, parentAlpha);
+    	
+    }
+    
 }
