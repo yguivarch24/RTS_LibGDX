@@ -14,5 +14,6 @@ public class LiveObjectClickListener extends GlobalClickListener {
     @Override
     public void clicked(InputEvent event, float x, float y) {
         System.out.println(actor.liveObject + " has been clicked.");
+        if 
     }
 }

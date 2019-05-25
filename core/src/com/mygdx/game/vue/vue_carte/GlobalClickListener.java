@@ -6,7 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class GlobalClickListener extends ClickListener {
 	
-	static protected LiveObject ObjetSelec;
+	static protected LiveObject objetSelec;
+	static protected Partie partie;
 	
 	public void clicked(InputEvent event, float x, float y) {}
 }
