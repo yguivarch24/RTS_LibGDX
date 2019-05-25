@@ -34,4 +34,11 @@ public abstract class Environnement extends  GameObject implements ComposantCart
 		return this.object;
 	}
 	
+	public int getX() {
+		return getX();
+	}
+	
+	public int getY() {
+		return getY();
+	}
 }

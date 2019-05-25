@@ -51,4 +51,12 @@ abstract public class GameObject {
 		this.y = y;
 	}
 	
+	/**Obtenir le nom de l'objet
+	 * @return nom nomObjet
+	 */
+	public String getName() {
+		return this.name;
+	}
+
+	
 }

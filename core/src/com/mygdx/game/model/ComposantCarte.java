@@ -16,4 +16,6 @@ public interface ComposantCarte {
 	/** Retourne le LiveObject sur l'environnement */
 	public LiveObject getLiveObject();
 
+	public int getX();
+	public int getY();
 }
