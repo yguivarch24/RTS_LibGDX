@@ -25,6 +25,11 @@ public abstract class EnvironnementCollectable extends Environnement implements 
         }
     }
     
+    /** Connaitre la ressource */
+    public Ressource getRessource() {
+    	return this.ressource;
+    }
+    
     /** Collecter une certaine quantité de ressource 
      * @param valeuraprendre valeur de la ressource à retirer
      * @param ressource ressource à retirer

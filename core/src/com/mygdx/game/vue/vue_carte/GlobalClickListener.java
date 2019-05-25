@@ -8,6 +8,7 @@ public class GlobalClickListener extends ClickListener {
 	
 	public static LiveObject objetSelec;
 	static protected Partie partie;
+
 	
 	public void clicked(InputEvent event, float x, float y) {}
 }

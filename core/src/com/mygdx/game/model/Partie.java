@@ -51,7 +51,8 @@ public class Partie {
 		Joueur j1 = new Joueur("joueur1", Color.blue);
 		Joueur j2 = new Joueur("joueur2", Color.red);
 		this.ajouterJoueur(j1);
-		this.ajouterJoueur(j1);
+		this.ajouterJoueur(j2);
+		this.joueurCourant = j1;
 		/*listeJoueurs.forEach(j -> {
 			 // Cr�ation de l'hotel de ville
 			try {
@@ -61,14 +62,14 @@ public class Partie {
 				System.out.println("Pas de place pour l'HDV \n");
 			} 
 		});*/
-		try {
+		/*try {
 			HotelDeVille hdv1 = new HotelDeVille(6,7, carte, j1);
 			j1.ajouterBatiment(hdv1);
 			HotelDeVille hdv2 = new HotelDeVille(7,8, carte, j2);
-			j1.ajouterBatiment(hdv2);
+			j2.ajouterBatiment(hdv2);
 		}catch(CaseOccupeeException e1) {
 			System.out.println("Pas de place pour l'HDV \n");
-		}
+		} */
 	}
 	
 	/** Permet d'ajouter un joueur � la partie. (Normalement uniquement utiliser lors de la cr�ation de la partie)
