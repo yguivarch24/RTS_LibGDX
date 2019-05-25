@@ -1,5 +1,8 @@
 package com.mygdx.game.model;
 
+/** Classe représentant les GameObject.
+ * Représente tous les objects présents dans notre jeu.
+ */
 abstract public class GameObject {
 	
 	/** La coordonnée en abscisse de l'objet*/
@@ -12,6 +15,7 @@ abstract public class GameObject {
 	/** Construire un objet du jeu à partir de ses coordonnées (x,y) et de son nom.
 	 * @param x abscisse
 	 * @param y ordonnée
+	 * @param name nom de l'objet
 	 */
 	public GameObject(int x, int y, String name) {
 		this.x = x;

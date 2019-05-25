@@ -1,17 +1,14 @@
 package com.mygdx.game.model;
 import java.lang.Math;
 
-/** La classe model.LiveObject définie les caractéristiques général d'un objet
+/** La classe model.LiveObject définie les caractéristiques générales d'un objet
  * "vivant" de notre jeu tel qu'une unité ou un batiment. Elle hérite donc 
  * de model.GameObject qui généralise l'ensemble des objets du jeu.
- * 
- * @author jdides
- *
  */
  
 public class LiveObject extends GameObject {
 
-	/** Le joueur qui possède le bâtiment */
+	/** Le joueur qui possède l'objet */
 	private Joueur joueur;
 	/** La vie maximal de l'objet */ 
 	protected int vieMax;
@@ -23,20 +20,28 @@ public class LiveObject extends GameObject {
 	private int defense;
 	/** La statistique de portée d'attaque d'un objet */ 
 	private int portee;
-	/** Cout � payer en or pour obtenir l'objet */
+	/** Cout à payer en or pour obtenir l'objet */
 	private int coutOr;
-	/** Cout � payer en Bois pour obtenir l'objet */
+	/** Cout à payer en Bois pour obtenir l'objet */
 	private int coutBois;
-	/** Cout � payer en Nourriture pour obtenir l'objet */
+	/** Cout à payer en Nourriture pour obtenir l'objet */
 	private int coutNourriture;
-	
+
 	/** Constructeur d'un objet vivant, initialise ses statistiques et sa position.
 	 *
+	 * @param x coordonnée en abscisse de l'objet
+	 * @param y coordonée en ordonnée de l'objet
+	 * @param carte carte sur laquelle on joue
+	 * @param name nom de l'objet
+	 * @param joueur joueur qui possède l'objet
 	 * @param vieMax Statistique de vie max
 	 * @param vie Vie que l'objet a initialement
 	 * @param attaque Statistique inital d'attaque de l'objet
 	 * @param defense Statistique  inital de défense de l'objet
 	 * @param portee Statistique initial de portée d'effet de l'objet
+	 * @param or coût en or de l'oject
+	 * @param bois coût en bois de l'objet
+	 * @param nourriture coût en nourriture de l'objet
 	 */
     public LiveObject(int x, int y, Carte carte, String name, Joueur joueur, int vieMax, int vie, int attaque, int defense, 
     		int portee, int or, int bois, int nourriture) throws CaseOccupeeException {
@@ -54,89 +59,36 @@ public class LiveObject extends GameObject {
     }
 
 	/** Fonction permettant de retirer les points de vie d'un objet.
-	 * 
 	 * @param viePerdu Nombre de points de vie à retirer
 	 */
 	public void retirerVie(int viePerdu) {
 		this.vie -= viePerdu;
 	}
-	
+
 	/** Fonction permettant d'ajouter des points de vie à un objet.
-	 * 
 	 * @param vieGagne Nombre de point de vie à ajouter
 	 */
 	public void ajouterVie(int vieGagne) {
-		// One ne peut pas aller au dessus de la vie maximal.
+		// On ne peut pas aller au dessus de la vie maximal.
 		if (this.vie + vieGagne >= this.vieMax) {
 			this.vie = vieMax;
 		} else {
 			this.vie += vieGagne; 
 		}
 	}
-	
-	/** Renvoie la vieMax de l'objet. */
-	public int getVieMax() {
-		return this.vieMax;
-	}
-	
-	/** Renvoie la vie actuel de l'objet. */
-	public int getVie() {
-		return this.vie;
-	}
-	
-	/** Renvoie la défense actuelle de l'objet */
-	public int getDefense(){
-		return this.defense;
-	}
-	
-	/**Renvoie la portée actuelle de l'objet */
-	 public int getPortee(){
-		 return this.portee;
-	 }
-	 
-	 /** Permet d'obtenir le cout en or d'un objet.
-	  * @return La valeur du cout en or.
-	  */
-	 public int getCoutOr() {
-		 return coutOr;
-	 }
-	 
-	 /** Permet d'obtenir le cout en bois d'un objet.
-	  * @return La valeur du cout en bois.
-	  */
-	 public int getCoutBois() {
-		 return coutBois;
-	 }
-	 
-	 /** Permet d'obtenir le cout en nourriture d'un objet.
-	  * @return La valeur du cout en nourriture.
-	  */
-	 public int getCoutNourriture() {
-		 return coutNourriture;
-	 }
-	 
-	 /** Renvoi le joueur associer à l'objet.
-	  * 
-	  * @return le Joueur
-	  */
-	 public Joueur getJoueur() {
-		 return this.joueur;
-	 }
 
-	 /** Informe si notre � la port�e pour attaqu� une certaine cible.
+	 /** Informe si notre LiveObject à la portée pour attaquer une certaine cible.
 	  * 
-	  * @param cible La cible � attaquer
-	  * @return True si notre objet est � port�e, Flase sinon
+	  * @param cible La cible à attaquer
+	  * @return True si notre objet est à portée, Flase sinon
 	  */
-	public boolean estAPorte(LiveObject cible)
-	{
+	public boolean estAPorte(LiveObject cible)	{
 		return((Math.abs(this.x - cible.getX()) + Math.abs(this.y - cible.getY())) <= this.portee);
 	}
-	 
-	 
-	/** Le LiveObjet attaque un autre.
-	 * 
+
+	/** Le LiveObjet attaque un autre. 
 	 * @param defenseur : l'attaqué
+	 * @throws HorsDePorteeException si la cible est hors de portée
 	 */
 	public void attaquer(LiveObject defenseur) throws HorsDePorteeException {
 		if(this.estAPorte(defenseur)) {
@@ -151,10 +103,13 @@ public class LiveObject extends GameObject {
 				defenseur.retirerVie(defenseur.getDefense()-this.attaque); 
 				}
 		} else {
-			throw new HorsDePorteeException("La cible est hors de port�e");
+			throw new HorsDePorteeException("La cible est hors de portée");
 		}
 	}
-	
+
+	/** Obtenir l'état de vie d'un objet. 
+	 * @return True si la cible est morte, False sinon
+	 */
 	public boolean estMort() {
 		if (this.vie == 0){
 			return true;
@@ -163,5 +118,60 @@ public class LiveObject extends GameObject {
 			return false;
 		}
 	}
-	// PAS EXHAUSTIF
+
+	/** Obtenir la vieMax de l'objet. 
+	 * @return vie max de l'objet
+	 */
+	public int getVieMax() {
+		return this.vieMax;
+	}
+
+	/** Obtenir la vie actuelle de l'objet. 
+	 * @ return vie actuelle de l'objet
+	 */
+	public int getVie() {
+		return this.vie;
+	}
+
+	/** Obtenir la défense de l'objet
+	 * @return defense de l'objet
+	 */
+	public int getDefense(){
+		return this.defense;
+	}
+
+	/**Obtenir la portée de l'objet 
+	 * @return portée de l'objet
+	 */
+	 public int getPortee(){
+		 return this.portee;
+	 }
+
+	 /** Obtenir le coût en or d'un objet.
+	  * @return valeur du coût en or.
+	  */
+	 public int getCoutOr() {
+		 return coutOr;
+	 }
+
+	 /** Obtenir le coût en bois d'un objet.
+	  * @return valeur du coût en bois.
+	  */
+	 public int getCoutBois() {
+		 return coutBois;
+	 }
+
+	 /** Obtenir le coût en nourriture d'un objet.
+	  * @return valeur du coût en nourriture.
+	  */
+	 public int getCoutNourriture() {
+		 return coutNourriture;
+	 }
+
+	 /** Obtenir le joueur associer à l'objet.	  * 
+	  * @return le Joueur
+	  */
+	 public Joueur getJoueur() {
+		 return this.joueur;
+	 }
 }

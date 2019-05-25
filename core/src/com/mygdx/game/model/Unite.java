@@ -1,17 +1,33 @@
 package com.mygdx.game.model;
 
+/** Classe abstraite représentant une unité.
+ * Une unité est un LiveObject mobile. */
 abstract public class Unite extends LiveObject {
 	
-	/** Le nombre de points de mouvement que poss�de l'objet.	 */
+	/** Le nombre de points de mouvement que possède l'objet.	 */
 	private int nbDeplacementMax;
 	/** Le nombre de points de mouvement restants durant un tour. */
 	private int nbDeplacementRestant;
-	/** Le nombre de points de vie reg�n�r� en d�but de tour. */
+	/** Le nombre de points de vie regénéré en début de tour. */
 	private int regenVieTour;
 
 	/** Constructeur d'un objet vivant, initialise ses statistiques et sa position.
+	 * @param x coordonnée en abscisse de l'objet
+	 * @param y coordonée en ordonnée de l'objet
+	 * @param carte carte sur laquelle on joue
+	 * @param name nom de l'objet
+	 * @param joueur joueur qui possède l'objet
+	 * @param vieMax Statistique de vie max
+	 * @param vie Vie que l'objet a initialement
+	 * @param regen
+	 * @param attaque Statistique inital d'attaque de l'objet
+	 * @param defense Statistique  inital de défense de l'objet
+	 * @param portee Statistique initial de portée d'effet de l'objet
 	 * @param nbDeplacementMax Le nombre de points de mouvement de l'objet.
 	 * @param nbDeplacementRestant Le nb de point de mouvement initial durant le tour de l'objet.
+	 * @param or coût en or de l'oject
+	 * @param bois coût en bois de l'objet
+	 * @param nourriture coût en nourriture de l'objet
 	 */
 	public Unite(int x, int y, Carte carte, String name, Joueur joueur, int vieMax, int vie, int regen, int attaque, 
 			int defense, int portee, int nbDeplacementMax, int nbDeplacementRestant, int or, int bois,
@@ -23,9 +39,12 @@ abstract public class Unite extends LiveObject {
 	}
 	
 	
-	// Faut-il d�placer par rapport � des valeurs de x et y � ajouter � la pos,
-	// Ou faut t'il donner une cellule de la map et se d�placer vers cette cellule ?
-	// Il faut encore v�rifier que la case n'est pas occup�, et lever l'exception sinon.
+	/** Fonction permettant de déplacer un objet.
+	 * @param dx déplacement selon les absisses
+	 * @param dy déplacement selon les ordonnées
+	 * @throws DeplacementInvalideExecption si l'unité ne possède pas assez de points de mouvements
+	 * @throws CaseOccupeeException si la case est occupée
+	 */
 	public void deplacer(int dx, int dy) throws DeplacementInvalideException, CaseOccupeeException {
 		if((dx + dy) <= nbDeplacementRestant) {
 			this.x += dx;
@@ -35,13 +54,20 @@ abstract public class Unite extends LiveObject {
 		}
 	}
 	
+	/** Fonction permettant d'initialiser le tour d'un joueur, après un changement de main
+	 * 
+	 */
 	public void initTourUnite() {
 		// Reset des points de mouvements
 		this.nbDeplacementRestant = this.nbDeplacementMax;
-		// Regeneration de vie de d�but de tour.
-		if(this.vie <= regenVieTour) {
-			this.vie += this.vieMax - this.vie;
-		} else { this.regenVieTour += regenVieTour;}
+		// Regeneration de vie de début de tour.
+		if(this.vie < this.vieMax) {
+			if (this.vie + regenVieTour >= this.vieMax) {
+				this.vie = this.vieMax;
+			} else {
+				this.vie += regenVieTour;
+			}
+		}
 	}
 
 }
