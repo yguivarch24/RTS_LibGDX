@@ -1,10 +1,12 @@
 package com.mygdx.game.model;
 
+/** Classe abstraite représentant un batiment.
+ * Une unité est un LiveObject immobile. */
+
 abstract public class Batiment extends LiveObject {
 	
 	
-	/** Constructeur d'un batiment initialise ses statistiques et sa position.
-	 * 
+	/** Constructeur d'un batiment, initialise ses statistiques et sa position. 
 	 * @param x Position en x initial de l'objet
 	 * @param y Position en y initial de l'objet
 	 * @param name Nom de l'objet

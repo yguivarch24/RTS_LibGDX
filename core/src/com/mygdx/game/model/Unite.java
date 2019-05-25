@@ -2,6 +2,7 @@ package com.mygdx.game.model;
 
 /** Classe abstraite représentant une unité.
  * Une unité est un LiveObject mobile. */
+
 abstract public class Unite extends LiveObject {
 	
 	/** Le nombre de points de mouvement que possède l'objet.	 */

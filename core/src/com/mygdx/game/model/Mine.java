@@ -11,6 +11,6 @@ public class Mine extends BatimentRessource {
 	 * @param Joueur a qui appartient la mine
 */
 	public Mine(int x, int y, Carte carte, Joueur joueur, Ressource res) throws CaseOccupeeException {
-		super(x,y, carte,"Mine",joueur,res,100,100,0,20,0,1000,5,10,15,0);
+		super(x,y, carte,"Mine",joueur,res,100,100,0,20,1000,5,10,15,0);
 	}
 }
