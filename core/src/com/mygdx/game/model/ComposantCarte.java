@@ -5,8 +5,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public interface ComposantCarte {
 
-	final int TILESize = 64;
-
 	/** Obtenir l'état d'une case pour les LiveObject (occupée/vide) */
 	public boolean estOccupee();
 	
@@ -16,6 +14,9 @@ public interface ComposantCarte {
 	/** Retourne le LiveObject sur l'environnement */
 	public LiveObject getLiveObject();
 
+	/** Obtenir l'abscisse d'une case */
 	public int getX();
+	
+	/** Obtenir l'ordonnée d'une case */
 	public int getY(); 
 }

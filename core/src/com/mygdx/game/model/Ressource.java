@@ -1,5 +1,7 @@
 package com.mygdx.game.model;
 
+/** Classe représentant l'ensemble des ressources disponibles du jeu. */
+
 public class Ressource {
 	
 	/** La quantité de ressource disponible */
@@ -15,17 +17,25 @@ public class Ressource {
 		this.quantiteRessource = rsc;
 	}
 	
+	/** Constructeur de la classe 
+	 * @param name nom de la ressource
+	 * @param rsc le nombre de ressources disponible.
+	 */
 	public Ressource (String name, int rsc){
 		this.quantiteRessource = rsc;
 		this.name = name;
 	}
 	
-	/** Obtenir le nom de la ressource */
+	/** Obtenir le nom de la ressource
+	 * @return le nom de la ressource
+	 */
 	public String getNom() {
 		return this.name;
 	}
 	
-	/** Obtenir le nombre de ressources disponibles */
+	/** Obtenir le nombre de ressources disponibles 
+	 * @return la quantité de ressource disponible
+	 */
 	public int getRessources(){
 		return this.quantiteRessource;
 	}

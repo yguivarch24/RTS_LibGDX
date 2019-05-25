@@ -2,6 +2,7 @@ package com.mygdx.game.model;
 
 /** Classe abstraite représentant une unité.
  * Une unité est un LiveObject mobile. */
+
 abstract public class Unite extends LiveObject {
 	
 	/** Le nombre de points de mouvement que possède l'objet.	 */
@@ -40,8 +41,7 @@ abstract public class Unite extends LiveObject {
 		this.regenVieTour = regen;
 		this.dejaAttaque = false;
 	}
-	
-	
+
 	/** Le LiveObjet attaque un autre. 
 	 * @param defenseur : l'attaqué
 	 * @throws HorsDePorteeException si la cible est hors de portée

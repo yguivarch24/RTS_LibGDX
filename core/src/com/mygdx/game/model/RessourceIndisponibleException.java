@@ -1,5 +1,7 @@
 package com.mygdx.game.model;
 
+/** Exception qui indique l'accès à une ressource non disponible. */
+
 public class RessourceIndisponibleException extends Exception {
 	
 	/** Nombre de ressources prises. */
