@@ -208,4 +208,17 @@ public class Joueur {
 	public int getRessources(String nomRes) throws RessourceInvalideException {		
 		return Str2Ressource(nomRes).getRessources();	
 	}
+	
+	/** Renvoi la quantité d'or possédé par le joueur */
+	public int getOr() {
+		return this.or.getRessources();
+	}
+	/** Renvoi la quantité de bois possédé par le joueur */
+	public int getBois() {
+		return this.bois.getRessources();
+	}
+	/** Renvoi la quantité de nourriture possédé par le joueur */
+	public int getNourriture() {
+		return this.nourriture.getRessources();
+	}
 }

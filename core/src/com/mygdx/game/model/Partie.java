@@ -89,6 +89,7 @@ public class Partie {
 			indexJoueurCourant = 1;
 			nbTour ++;
 		} else { indexJoueurCourant ++;}
+		joueurCourant = listeJoueurs.get(indexJoueurCourant);
 	}
 	
 	/** Permet d'obtenir le joueur courant. 
