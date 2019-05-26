@@ -39,15 +39,13 @@ public class Map1 implements Screen {
     private SpriteBatch batch;
    // private Joueur joueur;
     
-    /** Notre partie à render */
+    /** Notre partie à render */
     private Partie partie;
     
 
     TiledMapStage stage;
     TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
-   
-    Skin skin;
    
 
     
@@ -63,69 +61,6 @@ public class Map1 implements Screen {
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         partie = new Partie(2, tailleMap); 
         stage = new TiledMapStage(tiledMap, partie);
-
-        
-
-
-        
-        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
-		// Generate a 1x1 white texture and store it in the skin named "white".
-		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
-		pixmap.setColor(Color.WHITE);
-		pixmap.fill();
-		skin.add("white", new Texture(pixmap));
-        
-		// Store the default libgdx font under the name "default".
-		skin.add("default", new BitmapFont());
-
-		// Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.
-		/* TextButtonStyle textButtonStyle = new TextButtonStyle();
-		textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY);
-		textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY);
-		textButtonStyle.checked = skin.newDrawable("white", Color.BLUE);
-		textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY);
-		textButtonStyle.font = skin.getFont("default");
-		skin.add("default", textButtonStyle); */
-		
-		/* Affiche le joueur courant et le bouton joueur suivant */
-		Table tableJ = new Table(skin);
-		tableJ.setFillParent(true);
-		final TextButton buttonJoueurSuivant = new TextButton("Joueur Suivant", skin);
-		final Label joueurCourantTxt = new Label("Joueur courant : " + partie.getJoueur().getPseudo(), skin);
-		tableJ.add(joueurCourantTxt);
-		tableJ.add(buttonJoueurSuivant);
-
-		/* Affiche les stats du joueurs 1 */
-		Table tableJ1 = new Table(skin);
-		tableJ1.setFillParent(true);
-		final Label ressourceJ1 = new Label("Joueur1 \nOr : " + partie.getJoueurs().get(1).getOr() + "\nBois : " 
-		+ partie.getJoueurs().get(1).getBois() + "\nNourriture : " + partie.getJoueurs().get(1).getNourriture(), skin);
-		tableJ1.add(ressourceJ1);
-		
-		/* Affiche les stats du joueurs 2 */
-		Table tableJ2 = new Table(skin);
-		tableJ2.setFillParent(true);
-		final Label ressourceJ2 = new Label("Joueur2 \nOr : " + partie.getJoueurs().get(2).getOr() + "\nBois : " 
-		+ partie.getJoueurs().get(2).getBois() + "\nNourriture : " + partie.getJoueurs().get(2).getNourriture(), skin);
-		tableJ2.add(ressourceJ2);
-
-		tableJ.bottom();
-		tableJ1.top();
-		tableJ1.left();
-		tableJ2.top();
-		tableJ2.right();
-		
-		stage.addActor(tableJ);
-		stage.addActor(tableJ1);
-		stage.addActor(tableJ2);
-
-		buttonJoueurSuivant.addListener(new ChangeListener() {
-			public void changed (ChangeEvent event, Actor actor) {
-				partie.joueurSuivant();
-				System.out.println("Joueur courant : " + partie.getJoueur().getPseudo());
-				joueurCourantTxt.setText("Joueur courant : " + partie.getJoueur().getPseudo());
-			}
-		});
     }
     
     /** Rafraichir*/
@@ -136,14 +71,20 @@ public class Map1 implements Screen {
         stage.getViewport().getCamera().update();
         tiledMapRenderer.setView((OrthographicCamera)stage.getViewport().getCamera());
         tiledMapRenderer.render();
-        stage.act(delta);
-        //Now render objects in your stage on top.
+        stage.getViewport().apply();
+        stage.act();
         stage.draw();
+
+        // now switch the viewport and activate the other one
+        stage.getUiStage().getViewport().apply();
+        stage.getUiStage().act();
+        stage.getUiStage().draw();
     }
 
     @Override
     public void resize(int width, int height) {
-    	stage.getViewport().update(width, height);
+    	stage.getViewport().update(width, height, true);
+    	stage.getUiStage().getViewport().update(width, height, false);
     }
 
 
