@@ -77,7 +77,7 @@ public class Partie {
 			indexJoueurCourant = 1;
 			nbTour ++;
 		} else { indexJoueurCourant ++;}
-		joueurCourant = listeJoueurs.get(indexJoueurCourant);
+		joueurCourant = listeJoueurs.get(indexJoueurCourant-1);
 	}
 	
 	/** Permet d'obtenir le joueur courant. 
