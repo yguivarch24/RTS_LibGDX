@@ -46,17 +46,25 @@ public class LiveObjectActor extends Actor {
     		break;	
     	case "com.mygdx.game.model.Caserne" : /* -------------PAS ENCORE DE SKIN PORU CASERNE --------*/
     		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
-    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/epee.png")));
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/caserne_bleu.png")));
     		} else {
-    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/epee.png")));
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/caserne_rouge.png")));
     		}
     		break;
     	case "com.mygdx.game.model.Scierie" :
-			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/scierie.png")));
-		break;
+    		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/scierie_bleu.png")));
+    		} else {
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/scierie_rouge.png")));
+    		}
+    		break;
     	case "com.mygdx.game.model.Mine" :
-    		this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/mine.png")));
-		break;
+    		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/mine_bleu.png")));
+    		} else {
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/mine_rouge.png")));
+    		}
+    		break;
     	case "com.mygdx.game.model.Ferme" :
     		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
     			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/fermeBleu.png")));
