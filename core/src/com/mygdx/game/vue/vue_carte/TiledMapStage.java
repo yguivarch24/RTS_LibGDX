@@ -29,7 +29,7 @@ public class TiledMapStage extends Stage {
     	
         this.tiledMap = tiledMap;
         GlobalClickListener.partie = p;
-        GlobalClickListener.objetSelec = null;
+        GlobalClickListener.objetSelec = null; 
         for (MapLayer layer : tiledMap.getLayers()) {
             TiledMapTileLayer tiledLayer = (TiledMapTileLayer)layer;
             createActorsForLayer(tiledLayer);
