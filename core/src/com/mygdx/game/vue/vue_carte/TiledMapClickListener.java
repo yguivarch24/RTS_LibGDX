@@ -42,7 +42,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    		
 	    	    if ( env instanceof Foret) {
 	    			try {
-	    				GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
+	    				GlobalClickListener.partie.getJoueur().payer(5, 15, 20);
 	    				try {
 			    			Scierie scierie_courante = new Scierie(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
 			    			partie.getJoueur().ajouterBatiment(scierie_courante);
@@ -59,7 +59,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 		    	} else if (env instanceof GisementOr) {
 		    		System.out.println("or");
 	    		try {
-	    			GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
+	    			GlobalClickListener.partie.getJoueur().payer(20, 5, 15);
 	    			try {
 		    			Mine mine_courante = new Mine(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
 		    			GlobalClickListener.partie.getJoueur().ajouterBatiment(mine_courante);
@@ -77,7 +77,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    		
 		    	} else if (env instanceof Buisson) {
 	    		try {
-	    			GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
+	    			GlobalClickListener.partie.getJoueur().payer(15, 20, 5);
 	    			
 	    			try {
 		    			Ferme ferme_courante = new Ferme(x,y,partie.getCarte(), partie.getJoueur(), env.getRessource()); 
