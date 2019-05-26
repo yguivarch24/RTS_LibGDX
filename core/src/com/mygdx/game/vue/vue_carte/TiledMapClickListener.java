@@ -39,43 +39,55 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    		}
 	    	} else if (actor.cellule instanceof EnvironnementCollectable) {
 	    	    EnvironnementCollectable env = (EnvironnementCollectable)actor.cellule;
-	    		if ( env instanceof Foret) {
+	    		
+	    	    if ( env instanceof Foret) {
 	    			try {
-	    				GlobalClickListener.partie.getJoueur().payer(0, 1, 0);
+	    				GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
+	    				try {
+			    			Scierie scierie_courante = new Scierie(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
+			    			partie.getJoueur().ajouterBatiment(scierie_courante);
+			        		LiveObjectActor batActor = new LiveObjectActor(scierie_courante, this.stage);
+			        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+			        		batListener.actor.stage.addActor(batActor);
+			    		} catch (CaseOccupeeException e) {
+			    			GlobalClickListener.objetSelec = null;
+			    		}
 	    			} catch (RessourceIndisponibleException e) {
 	    				GlobalClickListener.objetSelec = null;
 	    			}
-		    		try {
-		    			Scierie scierie_courante = new Scierie(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
-		    			partie.getJoueur().ajouterBatiment(scierie_courante);
-		        		LiveObjectActor batActor = new LiveObjectActor(scierie_courante, this.stage);
+		    		
+		    	} else if (env instanceof GisementOr) {
+		    		System.out.println("or");
+	    		try {
+	    			GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
+	    			try {
+		    			Mine mine_courante = new Mine(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
+		    			GlobalClickListener.partie.getJoueur().ajouterBatiment(mine_courante);
+		        		LiveObjectActor batActor = new LiveObjectActor(mine_courante, this.stage);
+		        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+		        		batListener.actor.stage.addActor(batActor);
+		    			
+		    		} catch (CaseOccupeeException e) {
+		    			GlobalClickListener.objetSelec = null;
+		    		}
+    				
+    			} catch (RessourceIndisponibleException e) {
+    				GlobalClickListener.objetSelec = null;
+    			}
+	    		
+		    	} else if (env instanceof Buisson) {
+	    		try {
+	    			GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
+	    			
+	    			try {
+		    			Ferme ferme_courante = new Ferme(x,y,partie.getCarte(), partie.getJoueur(), env.getRessource()); 
+		    			GlobalClickListener.partie.getJoueur().ajouterBatiment(ferme_courante);
+		    			LiveObjectActor batActor = new LiveObjectActor(ferme_courante, this.stage);
 		        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
 		        		batListener.actor.stage.addActor(batActor);
 		    		} catch (CaseOccupeeException e) {
 		    			GlobalClickListener.objetSelec = null;
 		    		}
-		    	} else if (env instanceof GisementOr) {
-		    		System.out.println("or");
-	    		try {
-	    			GlobalClickListener.partie.getJoueur().payer(0, 1, 0);
-	    			
-    				
-    			} catch (RessourceIndisponibleException e) {
-    				GlobalClickListener.objetSelec = null;
-    			}
-	    		try {
-	    			Mine mine_courante = new Mine(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
-	    			GlobalClickListener.partie.getJoueur().ajouterBatiment(mine_courante);
-	        		LiveObjectActor batActor = new LiveObjectActor(mine_courante, this.stage);
-	        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
-	        		batListener.actor.stage.addActor(batActor);
-	    			
-	    		} catch (CaseOccupeeException e) {
-	    			GlobalClickListener.objetSelec = null;
-	    		}
-		    	} else if (env instanceof Buisson) {
-	    		try {
-	    			GlobalClickListener.partie.getJoueur().payer(0, 1, 0);
     			} catch (RessourceIndisponibleException e) {
     				GlobalClickListener.objetSelec = null;
     			}
