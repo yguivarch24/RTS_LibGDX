@@ -41,7 +41,6 @@ public abstract class EnvironnementCollectable extends Environnement implements 
 			System.out.println(e.getMessage());
 		}
 		return valeuraprendre;
-		//
 	}
     
 }

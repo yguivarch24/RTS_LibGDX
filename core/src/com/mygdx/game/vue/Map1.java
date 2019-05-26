@@ -29,6 +29,7 @@ import com.mygdx.game.model.Joueur;
 import com.mygdx.game.model.LiveObject;
 import com.mygdx.game.model.Soldat;
 import com.mygdx.game.model.Unite;
+import com.mygdx.game.vue.vue_carte.GlobalClickListener;
 import com.mygdx.game.vue.vue_carte.LiveObjectActor;
 import com.mygdx.game.vue.vue_carte.TiledMapStage;
 
@@ -68,7 +69,7 @@ public class Map1 implements Screen {
         int tailleMap = ((TiledMapTileLayer)tiledMap.getLayers().get(0)).getWidth();
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         partie = new Partie(2, tailleMap);
-        //this.partie.initPartie();
+        GlobalClickListener.partie = partie;
         stage = new TiledMapStage(tiledMap, partie);
 
         stage.getViewport().setCamera(camera);
