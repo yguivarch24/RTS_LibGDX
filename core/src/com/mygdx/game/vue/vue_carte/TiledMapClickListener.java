@@ -101,6 +101,19 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    			GlobalClickListener.objetSelec = null;
 	    		}
 	    	}
+    	} else if (actor.cellule instanceof Environnement) {
+	    	Environnement env = (Environnement)actor.cellule;
+	    	if (env instanceof  Plaine) {		    	
+	    		try {
+	    			Caserne caserne_courante = new Caserne(x,y,partie.getCarte(), partie.getJoueur()); 
+	    			GlobalClickListener.partie.getJoueur().ajouterBatiment(caserne_courante);
+	    			LiveObjectActor batActor = new LiveObjectActor(caserne_courante, this.stage);
+	        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+	        		batListener.actor.stage.addActor(batActor);
+	    		} catch (CaseOccupeeException e) {
+	    			GlobalClickListener.objetSelec = null;
+	    		}
+	    	}
     	} else {
     		GlobalClickListener.objetSelec = null;
     	}
