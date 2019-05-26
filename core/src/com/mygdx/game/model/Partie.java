@@ -78,7 +78,7 @@ public class Partie {
 	 * lors de la création de la partie par les joueurs.
 	 */
 	public void joueurSuivant() {
-		if(indexJoueurCourant >= nbJoueur) {
+		if(indexJoueurCourant >= nbJoueur-1) {
 			indexJoueurCourant = 0;
 			nbTour ++;
 		} else { indexJoueurCourant ++;}
