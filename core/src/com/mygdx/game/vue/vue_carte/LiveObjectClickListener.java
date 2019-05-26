@@ -60,10 +60,7 @@ public class LiveObjectClickListener extends GlobalClickListener {
         } else if (this.actor.liveObject instanceof Batiment) {
         	if (GlobalClickListener.objetSelec == null) {
         		// afficher caractéristique batiment
-        		System.out.println("Caserne :" + this.actor.liveObject.getJoueur());
-        		System.out.println("Joueur actuelle :" + GlobalClickListener.partie.getJoueur());
         		if (this.actor.liveObject.getJoueur().equals(GlobalClickListener.partie.getJoueur())) {
-        			System.out.println("C'est ma caserne");
         			if(this.actor.liveObject instanceof Caserne) {
             			GlobalClickListener.objetSelec = this.actor.liveObject;
             			actor.stage.uiStage.soldat.setVisible(true);
@@ -91,7 +88,6 @@ public class LiveObjectClickListener extends GlobalClickListener {
         	}
         
         if(!(this.actor.liveObject instanceof Caserne)) {
-        	System.out.println("On efface les boutons");
 			actor.stage.uiStage.soldat.setVisible(false);
 			actor.stage.uiStage.archer.setVisible(false);
 		}

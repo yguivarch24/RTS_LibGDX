@@ -36,10 +36,12 @@ public class UIMapStage extends Stage {
 	final Skin skin = new Skin(Gdx.files.internal("golden-spiral/skin/golden-ui-skin.json"));
 	final TextButton archer = new TextButton("Archer", skin);
 	final TextButton soldat = new TextButton("Soldat", skin);
+	List<String> ressourceJoueur = new List<>(skin);
 	
 	public UIMapStage(Partie partie, TiledMapStage stage) {
 		
 		this.stage = stage;
+		this.partie = partie;
 		
 		
 		// Generate a 1x1 white texture and store it in the skin named "white".
@@ -50,16 +52,6 @@ public class UIMapStage extends Stage {
         
 		// Store the default libgdx font under the name "default".
 		skin.add("default", new BitmapFont());
-
-		// Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.
-		
-		/*TextButtonStyle textButtonStyle = new TextButtonStyle();
-		textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY);
-		textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY);
-		textButtonStyle.checked = skin.newDrawable("white", Color.BLUE);
-		textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY);
-		textButtonStyle.font = skin.getFont("default");
-		skin.add("default", textButtonStyle); */
 		
 		Table tableProd = new Table(skin);
 		Table tableTour = new Table(skin);
@@ -104,49 +96,6 @@ public class UIMapStage extends Stage {
 		tableProd.add(archer);
 		tableProd.add(soldat);
 		
-		/* PARTIE DE JUSTIN */
-		//skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
-				
-		/* Affiche le joueur courant et le bouton joueur suivant */
-		/*Table tableJ = new Table(skin);
-		tableJ.setFillParent(true);
-		final TextButton buttonJoueurSuivant = new TextButton("Joueur Suivant", skin);
-		final Label joueurCourantTxt = new Label("Joueur courant : " + partie.getJoueur().getPseudo(), skin);
-		tableJ.add(joueurCourantTxt);
-		tableJ.add(buttonJoueurSuivant);*/
-
-		/* Affiche les stats du joueurs 1 */
-		/*Table tableJ1 = new Table(skin);
-		tableJ1.setFillParent(true);
-		final Label ressourceJ1 = new Label("Joueur1 \nOr : " + partie.getJoueurs().get(1).getOr() + "\nBois : " 
-		+ partie.getJoueurs().get(1).getBois() + "\nNourriture : " + partie.getJoueurs().get(1).getNourriture(), skin);
-		tableJ1.add(ressourceJ1);*/
-		
-		/* Affiche les stats du joueurs 2 */
-		/*Table tableJ2 = new Table(skin);
-		tableJ2.setFillParent(true);
-		final Label ressourceJ2 = new Label("Joueur2 \nOr : " + partie.getJoueurs().get(2).getOr() + "\nBois : " 
-		+ partie.getJoueurs().get(2).getBois() + "\nNourriture : " + partie.getJoueurs().get(2).getNourriture(), skin);
-		tableJ2.add(ressourceJ2);*/
-
-		/*tableJ.bottom();
-		tableJ1.top();
-		tableJ1.left();
-		tableJ2.top();
-		tableJ2.right();
-		
-		stage.addActor(tableJ);
-		stage.addActor(tableJ1);
-		stage.addActor(tableJ2);*/
-
-		/*buttonJoueurSuivant.addListener(new ChangeListener() {
-			public void changed (ChangeEvent event, Actor actor) {
-				partie.joueurSuivant();
-				System.out.println("Joueur courant : " + partie.getJoueur().getPseudo());
-				joueurCourantTxt.setText("Joueur courant : " + partie.getJoueur().getPseudo());
-			}
-		});*/
-		
 		button.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				
@@ -154,10 +103,13 @@ public class UIMapStage extends Stage {
 				joueurCourantTxt.setText("Joueur courant : " + partie.getJoueur().getPseudo());
 				
 				Array<String> strList = new Array<>();
-				strList.add("Bois : " + partie.getJoueur().getBois());
-				strList.add("Or : " + partie.getJoueur().getOr());
-				strList.add("Nourriture : " + partie.getJoueur().getNourriture());
+				strList.add("Bois : " + GlobalClickListener.partie.getJoueur().getBois());
+				strList.add("Or : " + GlobalClickListener.partie.getJoueur().getOr());
+				strList.add("Nourriture : " + GlobalClickListener.partie.getJoueur().getNourriture());
 				ressourceJoueur.setItems(strList);
+				
+				soldat.setVisible(false);
+        		archer.setVisible(false);
 			}
 		});
 		
@@ -175,6 +127,7 @@ public class UIMapStage extends Stage {
 		        		stage.addActor(archerActor);
 		        		soldat.setVisible(false);
 		        		archer.setVisible(false);
+		        		refreshRessource();
 					}
 					catch(RessourceIndisponibleException e) {
 						System.out.println(e.getMessage());
@@ -200,6 +153,11 @@ public class UIMapStage extends Stage {
 		        		stage.addActor(soldatActor);
 		        		soldat.setVisible(false);
 		        		archer.setVisible(false);
+		        		Array<String> strList = new Array<>();
+		        		strList.add("Bois : " + GlobalClickListener.partie.getJoueur().getBois());
+		        		strList.add("Or : " + GlobalClickListener.partie.getJoueur().getOr());
+		        		strList.add("Nourriture : " + GlobalClickListener.partie.getJoueur().getNourriture());
+		        		ressourceJoueur.setItems(strList);
 						
 					}
 					catch(RessourceIndisponibleException e) {
@@ -213,6 +171,14 @@ public class UIMapStage extends Stage {
 		});
 	}
 	
-	
+	public void refreshRessource() {
+		ressourceJoueur.clearItems();
+		Array<String> strList = new Array<>();
+		System.out.println(partie.getJoueur());
+		strList.add("Bois : " + GlobalClickListener.partie.getJoueur().getBois());
+		strList.add("Or : " + GlobalClickListener.partie.getJoueur().getOr());
+		strList.add("Nourriture : " + GlobalClickListener.partie.getJoueur().getNourriture());
+		ressourceJoueur.setItems(strList);
+	}
 	
 }

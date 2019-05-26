@@ -49,6 +49,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 			        		LiveObjectActor batActor = new LiveObjectActor(scierie_courante, this.stage);
 			        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
 			        		batListener.actor.stage.addActor(batActor);
+			        		stage.getUiStage().refreshRessource();
 			    		} catch (CaseOccupeeException e) {
 			    			GlobalClickListener.objetSelec = null;
 			    		}
@@ -57,7 +58,6 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    			}
 		    		
 		    	} else if (env instanceof GisementOr) {
-		    		System.out.println("or");
 	    		try {
 	    			GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
 	    			try {
@@ -66,7 +66,8 @@ public class TiledMapClickListener extends GlobalClickListener {
 		        		LiveObjectActor batActor = new LiveObjectActor(mine_courante, this.stage);
 		        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
 		        		batListener.actor.stage.addActor(batActor);
-		    			
+		        		System.out.println("Refresh");
+		        		stage.getUiStage().refreshRessource();
 		    		} catch (CaseOccupeeException e) {
 		    			GlobalClickListener.objetSelec = null;
 		    		}
@@ -85,6 +86,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 		    			LiveObjectActor batActor = new LiveObjectActor(ferme_courante, this.stage);
 		        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
 		        		batListener.actor.stage.addActor(batActor);
+		        		stage.getUiStage().refreshRessource();
 		    		} catch (CaseOccupeeException e) {
 		    			GlobalClickListener.objetSelec = null;
 		    		}
@@ -97,6 +99,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    			LiveObjectActor batActor = new LiveObjectActor(ferme_courante, this.stage);
 	        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
 	        		batListener.actor.stage.addActor(batActor);
+	        		stage.getUiStage().refreshRessource();
 	    		} catch (CaseOccupeeException e) {
 	    			GlobalClickListener.objetSelec = null;
 	    		}
@@ -110,6 +113,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    			LiveObjectActor batActor = new LiveObjectActor(caserne_courante, this.stage);
 	        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
 	        		batListener.actor.stage.addActor(batActor);
+	        		stage.getUiStage().refreshRessource();
 	    		} catch (CaseOccupeeException e) {
 	    			GlobalClickListener.objetSelec = null;
 	    		}
