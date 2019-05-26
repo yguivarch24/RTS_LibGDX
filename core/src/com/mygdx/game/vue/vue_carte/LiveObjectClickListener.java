@@ -60,13 +60,18 @@ public class LiveObjectClickListener extends GlobalClickListener {
         } else if (this.actor.liveObject instanceof Batiment) {
         	if (GlobalClickListener.objetSelec == null) {
         		// afficher caractéristique batiment
-        		if(this.actor.liveObject instanceof Caserne) {
-        			GlobalClickListener.objetSelec = this.actor.liveObject;
-        			actor.stage.uiStage.soldat.setVisible(true);
-        			actor.stage.uiStage.archer.setVisible(true);
-        		}
-        		else {
-        			
+        		System.out.println(this.actor.liveObject.getJoueur());
+        		System.out.println(GlobalClickListener.partie.getJoueur());
+        		if (this.actor.liveObject.getJoueur().equals(GlobalClickListener.partie.getJoueur())) {
+        			System.out.println("C'est ma caserne");
+        			if(this.actor.liveObject instanceof Caserne) {
+            			GlobalClickListener.objetSelec = this.actor.liveObject;
+            			actor.stage.uiStage.soldat.setVisible(true);
+            			actor.stage.uiStage.archer.setVisible(true);
+            		}
+            		else {
+            			
+            		}
         		}
         	} else if (GlobalClickListener.objetSelec instanceof Unite) {
             		// Si on a cliqué sur un batiment du joueur courant
