@@ -51,6 +51,7 @@ public class Partie {
 		this.ajouterJoueur(j1);
 		this.ajouterJoueur(j2);
 		this.joueurCourant = j1;
+		joueurCourant.initTourJoueur();
 		try {
 			HotelDeVille hdv1 = new HotelDeVille(41,38, carte, j1);
 			j1.ajouterBatiment(hdv1);
@@ -83,6 +84,7 @@ public class Partie {
 			nbTour ++;
 		} else { indexJoueurCourant ++;}
 		joueurCourant = listeJoueurs.get(indexJoueurCourant);
+		joueurCourant.initTourJoueur();
 	}
 	
 	/** Permet d'obtenir le joueur courant. 
