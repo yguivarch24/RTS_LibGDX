@@ -33,17 +33,17 @@ public class MainMenuScreen implements Screen {
     private final TextButton quit = new TextButton("Quit",skin);
 
 
-    // Constructeur, permet de garder une référence sur la classe principale Game
+    // Constructeur, permet de garder une rÃ©fÃ©rence sur la classe principale Game
     public MainMenuScreen(MyGdxGameRTSLauncher pgame){
         this.game = pgame;
         /** Chargement de l'image */
         texture = new Texture(Gdx.files.internal("backgroundMenu.jpg"));
         /** Pour le menu */
-        stage=new Stage(new FitViewport(800,480,new OrthographicCamera())); //stage permet la gestion des fenêtres ?
+        stage=new Stage(new FitViewport(800,480,new OrthographicCamera())); //stage permet la gestion des fenÃªtres ?
         /**Pour dessiner l'image */
         spriteBatch = new SpriteBatch();
 
-        /** Indiquer que le stage est intéractif */
+        /** Indiquer que le stage est intÃ©ractif */
         Gdx.input.setInputProcessor(stage);
 
         table=new Table();
@@ -72,7 +72,7 @@ public class MainMenuScreen implements Screen {
                 if(game.musicOn) {
                 	game.mp3Music.play();
                 }
-                Gdx.input.setInputProcessor(game.map1.stage);
+                Gdx.input.setInputProcessor(game.map1.stage.getInputMultiplexer());
                 game.setScreen(game.map1);
             }
         });
