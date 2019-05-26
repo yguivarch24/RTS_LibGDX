@@ -31,11 +31,18 @@ public class BatimentRessource extends Batiment {
 		this.ressource = res;
 		this.productionParTour = productionparTour;
 	}
-
+	
+	/** Obtenir la production par tour du batiment
+	 * 			
+	 * @return production par tour
+	 */
 	public int getProduction() {
 		return productionParTour;
 	}
-
+	/** Obtenir la ressource du batiment
+	 * 
+	 * @return la ressource du batiment
+	 */
 	public int getRessource() {
 		return this.ressource.getRessources();
 	}
