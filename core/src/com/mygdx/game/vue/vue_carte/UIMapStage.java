@@ -28,6 +28,7 @@ public class UIMapStage extends Stage {
 	Partie partie;
 	
 	public UIMapStage(Partie partie) {
+		
 		skin = new Skin(Gdx.files.internal("golden-spiral/skin/golden-ui-skin.json"));
 		// Generate a 1x1 white texture and store it in the skin named "white".
 		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
@@ -48,18 +49,23 @@ public class UIMapStage extends Stage {
 		textButtonStyle.font = skin.getFont("default");
 		skin.add("default", textButtonStyle); */
 		
-		Table table = new Table(skin);
-		table.setFillParent(true);
+		Table tableProd = new Table(skin);
+		Table tableTour = new Table(skin);
+		Table tableRessource = new Table(skin);
+		
+		tableProd.setFillParent(true);
+		tableTour.setFillParent(true);
+		tableRessource.setFillParent(true);
 
-		addActor(table);
-		table.bottom();
+		addActor(tableProd);
+		addActor(tableTour);
+		addActor(tableRessource);
 		
 		final TextButton button = new TextButton("Joueur Suivant", skin);
 
 		final Label joueurCourantTxt = new Label("Joueur courant : " + partie.getJoueur().getPseudo(), skin);
 	
 		final List<String> ressourceJoueur = new List<>(skin);
-		final Label ressourceJ1 = new Label("Joueur1 bois : " + partie.getJoueur().getBois(), skin);
 		
 		Array<String> strList = new Array<>();
 		strList.add("Bois : " + partie.getJoueur().getBois());
@@ -72,13 +78,20 @@ public class UIMapStage extends Stage {
 		soldat.setVisible(false);
 		archer.setVisible(false);
 		
+		tableProd.pad(5.0f);
+		tableTour.pad(5.0f);
+		tableRessource.pad(5.0f);
 		
+		tableTour.bottom().right();
+		tableTour.add(joueurCourantTxt);
+		tableTour.add(button);
 		
-		table.add(joueurCourantTxt);
-		table.add(button);
-		table.add(ressourceJoueur);
-		table.add(archer);
-		table.add(soldat);
+		tableRessource.top().right();
+		tableRessource.add(ressourceJoueur);
+		
+		tableProd.bottom().left();
+		tableProd.add(archer);
+		tableProd.add(soldat);
 		
 		/* PARTIE DE JUSTIN */
 		//skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
