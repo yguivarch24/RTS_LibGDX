@@ -28,6 +28,8 @@ public class TiledMapStage extends Stage {
         //partie.setCarte(new Carte(((TiledMapTileLayer)tiledMap.getLayers().get(0)).getWidth()));
     	
         this.tiledMap = tiledMap;
+        GlobalClickListener.partie = p;
+        GlobalClickListener.objetSelec = null;
         for (MapLayer layer : tiledMap.getLayers()) {
             TiledMapTileLayer tiledLayer = (TiledMapTileLayer)layer;
             createActorsForLayer(tiledLayer);

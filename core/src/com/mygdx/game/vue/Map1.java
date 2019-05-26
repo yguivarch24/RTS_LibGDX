@@ -69,7 +69,6 @@ public class Map1 implements Screen {
         int tailleMap = ((TiledMapTileLayer)tiledMap.getLayers().get(0)).getWidth();
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         partie = new Partie(2, tailleMap);
-        GlobalClickListener.partie = partie;
         stage = new TiledMapStage(tiledMap, partie);
 
         stage.getViewport().setCamera(camera);
