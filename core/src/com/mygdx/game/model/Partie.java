@@ -56,6 +56,11 @@ public class Partie {
 			j1.ajouterBatiment(hdv1);
 			HotelDeVille hdv2 = new HotelDeVille(7,8, carte, j2);
 			j2.ajouterBatiment(hdv2);
+			Caserne caserne1 = new Caserne(39,36, carte, j1);
+			j1.ajouterBatiment(caserne1);
+			Caserne caserne2 = new Caserne(9,10, carte, j2);
+			j2.ajouterBatiment(caserne2);
+			
 		}catch(CaseOccupeeException e1) {
 			System.out.println("Pas de place pour l'HDV \n");
 		} 
