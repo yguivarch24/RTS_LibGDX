@@ -87,30 +87,42 @@ public class Map1 implements Screen {
 		textButtonStyle.font = skin.getFont("default");
 		skin.add("default", textButtonStyle); */
 		
-		Table table = new Table(skin);
-		table.setFillParent(true);
-
-		stage.addActor(table);
-		table.bottom();
-		
-		final TextButton button = new TextButton("Joueur Suivant", skin);
-
+		/* Affiche le joueur courant et le bouton joueur suivant */
+		Table tableJ = new Table(skin);
+		tableJ.setFillParent(true);
+		final TextButton buttonJoueurSuivant = new TextButton("Joueur Suivant", skin);
 		final Label joueurCourantTxt = new Label("Joueur courant : " + partie.getJoueur().getPseudo(), skin);
-		
-		final Label ressourceJ1 = new Label("Joueur1 bois : " + partie.getJoueur().getBois(), skin);
-		//button.setPosition(20, 15, 0);
-		table.add(joueurCourantTxt);
-		table.add(button);
-		table.add(ressourceJ1);
-		
-		
+		tableJ.add(joueurCourantTxt);
+		tableJ.add(buttonJoueurSuivant);
 
-		button.addListener(new ChangeListener() {
+		/* Affiche les stats du joueurs 1 */
+		Table tableJ1 = new Table(skin);
+		tableJ1.setFillParent(true);
+		final Label ressourceJ1 = new Label("Joueur1 \nOr : " + partie.getJoueurs().get(1).getOr() + "\nBois : " 
+		+ partie.getJoueurs().get(1).getBois() + "\nNourriture : " + partie.getJoueurs().get(1).getNourriture(), skin);
+		tableJ1.add(ressourceJ1);
+		
+		/* Affiche les stats du joueurs 2 */
+		Table tableJ2 = new Table(skin);
+		tableJ2.setFillParent(true);
+		final Label ressourceJ2 = new Label("Joueur2 \nOr : " + partie.getJoueurs().get(2).getOr() + "\nBois : " 
+		+ partie.getJoueurs().get(2).getBois() + "\nNourriture : " + partie.getJoueurs().get(2).getNourriture(), skin);
+		tableJ2.add(ressourceJ2);
+
+		tableJ.bottom();
+		tableJ1.top();
+		tableJ1.left();
+		tableJ2.top();
+		tableJ2.right();
+		
+		stage.addActor(tableJ);
+		stage.addActor(tableJ1);
+		stage.addActor(tableJ2);
+
+		buttonJoueurSuivant.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
-				System.out.println("Clicked! Is checked: " + button.isChecked());
-				System.out.println("Joueur : " + partie.getJoueur().getPseudo());
 				partie.joueurSuivant();
-				System.out.println("Joueur : " + partie.getJoueur().getPseudo());
+				System.out.println("Joueur courant : " + partie.getJoueur().getPseudo());
 				joueurCourantTxt.setText("Joueur courant : " + partie.getJoueur().getPseudo());
 			}
 		});
