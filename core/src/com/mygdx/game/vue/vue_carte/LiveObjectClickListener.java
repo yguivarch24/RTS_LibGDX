@@ -60,8 +60,8 @@ public class LiveObjectClickListener extends GlobalClickListener {
         } else if (this.actor.liveObject instanceof Batiment) {
         	if (GlobalClickListener.objetSelec == null) {
         		// afficher caractéristique batiment
-        		System.out.println(this.actor.liveObject.getJoueur());
-        		System.out.println(GlobalClickListener.partie.getJoueur());
+        		System.out.println("Caserne :" + this.actor.liveObject.getJoueur());
+        		System.out.println("Joueur actuelle :" + GlobalClickListener.partie.getJoueur());
         		if (this.actor.liveObject.getJoueur().equals(GlobalClickListener.partie.getJoueur())) {
         			System.out.println("C'est ma caserne");
         			if(this.actor.liveObject instanceof Caserne) {

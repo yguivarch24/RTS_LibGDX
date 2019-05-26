@@ -39,7 +39,7 @@ public class Partie {
 		nbJoueur = nbJ;
 		listeJoueurs = new ArrayList<>(nbJ);
 		carte = new Carte(tailleCarte);
-		indexJoueurCourant = 1;
+		indexJoueurCourant = 0;
 		nbTour = 1;
 	}
 	
@@ -79,10 +79,10 @@ public class Partie {
 	 */
 	public void joueurSuivant() {
 		if(indexJoueurCourant >= nbJoueur) {
-			indexJoueurCourant = 1;
+			indexJoueurCourant = 0;
 			nbTour ++;
 		} else { indexJoueurCourant ++;}
-		joueurCourant = listeJoueurs.get(indexJoueurCourant-1);
+		joueurCourant = listeJoueurs.get(indexJoueurCourant);
 	}
 	
 	/** Permet d'obtenir le joueur courant. 

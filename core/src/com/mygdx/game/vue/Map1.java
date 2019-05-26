@@ -41,7 +41,6 @@ public class Map1 implements Screen {
     
     /** Notre partie à render */
     private Partie partie;
-    
 
     TiledMapStage stage;
     TiledMap tiledMap;

@@ -40,6 +40,7 @@ public class TiledMapStage extends Stage {
             TiledMapTileLayer tiledLayer = (TiledMapTileLayer)layer;
             createActorsForLayer(tiledLayer);
         }
+        partie.initPartie();
        
 
         createLiveObjectActors();
@@ -75,7 +76,6 @@ public class TiledMapStage extends Stage {
                 }
             }
         }
-        partie.initPartie();
     }
     
     /** Nous permets de crÃ©er tous les acteurs liÃ©es Ã  nos batiments et unitÃ©s.

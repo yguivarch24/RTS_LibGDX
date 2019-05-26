@@ -174,6 +174,7 @@ public class UIMapStage extends Stage {
 		        		archerActor.addListener(archerListener);
 		        		stage.addActor(archerActor);
 		        		soldat.setVisible(false);
+		        		archer.setVisible(false);
 					}
 					catch(RessourceIndisponibleException e) {
 						System.out.println(e.getMessage());
@@ -198,6 +199,7 @@ public class UIMapStage extends Stage {
 		        		soldatActor.addListener(soldatListener);
 		        		stage.addActor(soldatActor);
 		        		soldat.setVisible(false);
+		        		archer.setVisible(false);
 						
 					}
 					catch(RessourceIndisponibleException e) {
