@@ -42,7 +42,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    		
 	    	    if ( env instanceof Foret) {
 	    			try {
-	    				GlobalClickListener.partie.getJoueur().payer(5, 15, 20);
+	    				GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
 	    				try {
 			    			Scierie scierie_courante = new Scierie(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
 			    			partie.getJoueur().ajouterBatiment(scierie_courante);
@@ -59,7 +59,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 		    	} else if (env instanceof GisementOr) {
 		    		System.out.println("or");
 	    		try {
-	    			GlobalClickListener.partie.getJoueur().payer(20, 5, 15);
+	    			GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
 	    			try {
 		    			Mine mine_courante = new Mine(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
 		    			GlobalClickListener.partie.getJoueur().ajouterBatiment(mine_courante);
@@ -77,7 +77,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    		
 		    	} else if (env instanceof Buisson) {
 	    		try {
-	    			GlobalClickListener.partie.getJoueur().payer(15, 20, 5);
+	    			GlobalClickListener.partie.getJoueur().payer(0, 15, 10);
 	    			
 	    			try {
 		    			Ferme ferme_courante = new Ferme(x,y,partie.getCarte(), partie.getJoueur(), env.getRessource()); 
@@ -103,7 +103,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    	}
     	} else if (actor.cellule instanceof Environnement) {
 	    	Environnement env = (Environnement)actor.cellule;
-	    	if (env instanceof  Plaine) {		    	
+	    	if ((env instanceof  Plaine) && GlobalClickListener.objetSelec == null) {   	
 	    		try {
 	    			Caserne caserne_courante = new Caserne(x,y,partie.getCarte(), partie.getJoueur()); 
 	    			GlobalClickListener.partie.getJoueur().ajouterBatiment(caserne_courante);
@@ -114,10 +114,16 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    			GlobalClickListener.objetSelec = null;
 	    		}
 	    	}
-    	} else {
-    		GlobalClickListener.objetSelec = null;
     	}
-    	
+    		
+		if(GlobalClickListener.objetSelec instanceof Caserne) {
+        	System.out.println("On efface les boutons");
+			stage.uiStage.soldat.setVisible(false);
+			stage.uiStage.archer.setVisible(false);
+		}
+		
+		GlobalClickListener.objetSelec = null;
+
     }
     
 }

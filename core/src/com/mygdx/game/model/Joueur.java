@@ -164,7 +164,8 @@ public class Joueur {
 		/*On ajoute l'unité à la liste correspondante au type d'unité (soldat, archer...).
 		On cherche donc d'abord quel type d'unité c'est, puis on l'ajoute à la liste de la 
 		map correspondante. clée : 1 pour la liste des soldats, 2 pour les archers. */
-		switch(newUnite.getClass().getName()) {
+		System.out.println(newUnite.getName());
+		switch(newUnite.getName()) {
 		case "Soldat":
 			this.troupes.get(1).add(newUnite);
 			System.out.println("Ajout d'un soldat au joueur " + this.pseudo);

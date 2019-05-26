@@ -60,12 +60,20 @@ public class LiveObjectClickListener extends GlobalClickListener {
         } else if (this.actor.liveObject instanceof Batiment) {
         	if (GlobalClickListener.objetSelec == null) {
         		// afficher caractéristique batiment
+        		if(this.actor.liveObject instanceof Caserne) {
+        			GlobalClickListener.objetSelec = this.actor.liveObject;
+        			actor.stage.uiStage.soldat.setVisible(true);
+        			actor.stage.uiStage.archer.setVisible(true);
+        		}
+        		else {
+        			
+        		}
         	} else if (GlobalClickListener.objetSelec instanceof Unite) {
             		// Si on a cliqué sur un batiment du joueur courant
             		if (this.actor.liveObject.getJoueur() == GlobalClickListener.partie.getJoueur()) {
-            			// Il ne se passe rien car on ne s'attaque pas soi-même
-            		// Si on a cliqué sur un batiment de l'autre joueur
-            		} else {
+            			// On change d'unit� selctionn�
+            			GlobalClickListener.objetSelec = this.actor.liveObject;
+            		} else { // Si on a cliqué sur un batiment de l'autre joueur
             			try {
             				GlobalClickListener.objetSelec.attaquer(this.actor.liveObject);
             				GlobalClickListener.objetSelec = null;
@@ -75,8 +83,13 @@ public class LiveObjectClickListener extends GlobalClickListener {
             				e.getMessage();        			}	
             		}
             	}
-        	
-     }
+        	}
+        
+        if(!(this.actor.liveObject instanceof Caserne)) {
+        	System.out.println("On efface les boutons");
+			actor.stage.uiStage.soldat.setVisible(false);
+			actor.stage.uiStage.archer.setVisible(false);
+		}
    }
     
 }

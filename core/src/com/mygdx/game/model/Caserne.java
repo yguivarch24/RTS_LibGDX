@@ -26,7 +26,7 @@ public class Caserne extends Batiment {
 	 * @param joueurCourant le joueur dont c'est le tour
 	 * @throws CaseOccupeeException si la case est déjà occupée
 	 */
-	public void creerUnite(String typeUnite, Carte carte, Joueur joueurCourant) throws CaseOccupeeException {
+	public Unite creerUnite(String typeUnite, Carte carte, Joueur joueurCourant) throws CaseOccupeeException {
 		int xCourant = this.x;
 		int yCourant = this.y-1; // On commence à la case en dessou de la caserne.
 		int i = 0;
@@ -54,6 +54,6 @@ public class Caserne extends Batiment {
 			break;
 		}	
 		joueurCourant.ajouterTroupe(unite);
-		carte.setLiveObject(xCourant, yCourant, unite);
+		return unite;
 	}
 }

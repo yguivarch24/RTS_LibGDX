@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.List;
@@ -20,16 +21,27 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.mygdx.game.model.CaseOccupeeException;
+import com.mygdx.game.model.Caserne;
+import com.mygdx.game.model.LiveObject;
 import com.mygdx.game.model.Partie;
+import com.mygdx.game.model.RessourceIndisponibleException;
+import com.mygdx.game.model.Unite;
 
 public class UIMapStage extends Stage {
 	
-	Skin skin;
 	Partie partie;
+	TiledMapStage stage;
 	
-	public UIMapStage(Partie partie) {
+	final Skin skin = new Skin(Gdx.files.internal("golden-spiral/skin/golden-ui-skin.json"));
+	final TextButton archer = new TextButton("Archer", skin);
+	final TextButton soldat = new TextButton("Soldat", skin);
+	
+	public UIMapStage(Partie partie, TiledMapStage stage) {
 		
-		skin = new Skin(Gdx.files.internal("golden-spiral/skin/golden-ui-skin.json"));
+		this.stage = stage;
+		
+		
 		// Generate a 1x1 white texture and store it in the skin named "white".
 		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
 		pixmap.setColor(Color.WHITE);
@@ -73,8 +85,7 @@ public class UIMapStage extends Stage {
 		strList.add("Nourriture : " + partie.getJoueur().getNourriture());
 		ressourceJoueur.setItems(strList);
 		
-		final TextButton archer = new TextButton("Archer", skin);
-		final TextButton soldat = new TextButton("Soldat", skin);
+		
 		soldat.setVisible(false);
 		archer.setVisible(false);
 		
@@ -136,8 +147,6 @@ public class UIMapStage extends Stage {
 			}
 		});*/
 		
-		
-
 		button.addListener(new ChangeListener() {
 			public void changed (ChangeEvent event, Actor actor) {
 				
@@ -149,6 +158,55 @@ public class UIMapStage extends Stage {
 				strList.add("Or : " + partie.getJoueur().getOr());
 				strList.add("Nourriture : " + partie.getJoueur().getNourriture());
 				ressourceJoueur.setItems(strList);
+			}
+		});
+		
+		archer.addListener(new GlobalClickListener() {
+			public void clicked (InputEvent event, float x, float y) {
+				
+				if(objetSelec instanceof Caserne) {
+					Caserne caserne = (Caserne) objetSelec;
+					try {
+						partie.getJoueur().payer(20,0,20);
+						LiveObject u = caserne.creerUnite("Archer", partie.getCarte(), partie.getJoueur());
+						LiveObjectActor archerActor = new LiveObjectActor(u, stage);
+		        		LiveObjectClickListener archerListener = new LiveObjectClickListener(archerActor);
+		        		archerActor.addListener(archerListener);
+		        		stage.addActor(archerActor);
+		        		soldat.setVisible(false);
+					}
+					catch(RessourceIndisponibleException e) {
+						System.out.println(e.getMessage());
+					}
+					catch(CaseOccupeeException e) {
+						System.out.println(e.getMessage());
+					}
+				}
+			}
+		});
+		
+		soldat.addListener(new GlobalClickListener() {
+			public void clicked (InputEvent event, float x, float y) {
+				
+				if(objetSelec instanceof Caserne) {
+					Caserne caserne = (Caserne) objetSelec;
+					try {
+						partie.getJoueur().payer(15,0,15);
+						LiveObject u = caserne.creerUnite("Soldat", partie.getCarte(), partie.getJoueur());
+						LiveObjectActor soldatActor = new LiveObjectActor(u, stage);
+		        		LiveObjectClickListener soldatListener = new LiveObjectClickListener(soldatActor);
+		        		soldatActor.addListener(soldatListener);
+		        		stage.addActor(soldatActor);
+		        		soldat.setVisible(false);
+						
+					}
+					catch(RessourceIndisponibleException e) {
+						System.out.println(e.getMessage());
+					}
+					catch(CaseOccupeeException e) {
+						System.out.println(e.getMessage());
+					}
+				}
 			}
 		});
 	}

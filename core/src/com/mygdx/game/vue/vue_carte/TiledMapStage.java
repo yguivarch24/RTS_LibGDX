@@ -44,7 +44,7 @@ public class TiledMapStage extends Stage {
 
         createLiveObjectActors();
         
-        uiStage = new UIMapStage(p);
+        uiStage = new UIMapStage(p, this);
         
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
@@ -86,16 +86,19 @@ public class TiledMapStage extends Stage {
         	for(Batiment bat : j.getBatiments()) {
         		LiveObjectActor batActor = new LiveObjectActor(bat,this);
         		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+        		batActor.addListener(batListener);
         		this.addActor(batActor);
         	};
         	for(Unite a : j.getArcher()) {
         		LiveObjectActor archerActor = new LiveObjectActor(a,this);
         		LiveObjectClickListener archerListener = new LiveObjectClickListener(archerActor);
+        		archerActor.addListener(archerListener);
         		this.addActor(archerActor);
         	};
         	for(Unite s : j.getSoldat()) {
         		LiveObjectActor soldatActor = new LiveObjectActor(s,this);
         		LiveObjectClickListener soldatListener = new LiveObjectClickListener(soldatActor);
+        		soldatActor.addListener(soldatListener);
         		this.addActor(soldatActor);
         	};
     	}
