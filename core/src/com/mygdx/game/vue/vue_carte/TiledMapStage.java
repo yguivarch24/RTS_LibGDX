@@ -1,5 +1,6 @@
 package com.mygdx.game.vue.vue_carte;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
@@ -16,11 +17,11 @@ import com.mygdx.game.model.Unite;
 
 public class TiledMapStage extends Stage {
 
-    private TiledMap tiledMap;
+	protected TiledMap tiledMap;
 
-    private Partie partie;
-
-    public static final int size = 16;
+    protected Partie partie;
+    
+    protected OrthographicCamera camera;
 
     public TiledMapStage(TiledMap tiledMap, Partie p) {
         partie = p;
@@ -36,6 +37,17 @@ public class TiledMapStage extends Stage {
         }
 
         createLiveObjectActors();
+        
+        float w = Gdx.graphics.getWidth();
+        float h = Gdx.graphics.getHeight();
+
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false,w,h);
+        camera.update();
+        
+        getViewport().setCamera(camera);
+        getViewport().setScreenX(0);
+        getViewport().setScreenY(0);
     }
 
     private void createActorsForLayer(TiledMapTileLayer tiledLayer) {

@@ -46,7 +46,6 @@ public class Map1 implements Screen {
     TiledMapStage stage;
     TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
-    OrthographicCamera camera;
    
     Skin skin;
    
@@ -58,12 +57,6 @@ public class Map1 implements Screen {
     	
         this.game = game;
 
-        float w = Gdx.graphics.getWidth();
-        float h = Gdx.graphics.getHeight();
-
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false,w,h);
-        camera.update();
 
         tiledMap = new TmxMapLoader().load("Tiles/grass_tileset_map.tmx");
         int tailleMap = ((TiledMapTileLayer)tiledMap.getLayers().get(0)).getWidth();
@@ -71,9 +64,7 @@ public class Map1 implements Screen {
         partie = new Partie(2, tailleMap); 
         stage = new TiledMapStage(tiledMap, partie);
 
-        stage.getViewport().setCamera(camera);
-        stage.getViewport().setScreenX(0);
-        stage.getViewport().setScreenY(0);
+        
 
 
         
@@ -130,8 +121,8 @@ public class Map1 implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(0,0,0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.update();
-        tiledMapRenderer.setView(camera);
+        stage.getViewport().getCamera().update();
+        tiledMapRenderer.setView((OrthographicCamera)stage.getViewport().getCamera());
         tiledMapRenderer.render();
         stage.act(delta);
         //Now render objects in your stage on top.
