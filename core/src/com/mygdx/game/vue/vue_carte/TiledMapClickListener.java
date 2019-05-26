@@ -6,11 +6,15 @@ import com.mygdx.game.model.*;
 
 public class TiledMapClickListener extends GlobalClickListener {
 
+	private TiledMapStage stage;
     private TiledMapActor actor;
     
-    public TiledMapClickListener(TiledMapActor actor) {
+    
+    public TiledMapClickListener(TiledMapActor actor, TiledMapStage st) {
+    	this.stage = st;
         this.actor = actor;
     }
+   
 
     @Override
     public void clicked(InputEvent event, float x, float y) {
@@ -36,7 +40,6 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    	} else if (actor.cellule instanceof EnvironnementCollectable) {
 	    	    EnvironnementCollectable env = (EnvironnementCollectable)actor.cellule;
 	    		if ( env instanceof Foret) {
-	    			System.out.println("arbre");
 	    			try {
 	    				GlobalClickListener.partie.getJoueur().payer(0, 1, 0);
 	    			} catch (RessourceIndisponibleException e) {
@@ -45,6 +48,9 @@ public class TiledMapClickListener extends GlobalClickListener {
 		    		try {
 		    			Scierie scierie_courante = new Scierie(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
 		    			partie.getJoueur().ajouterBatiment(scierie_courante);
+		        		LiveObjectActor batActor = new LiveObjectActor(scierie_courante, this.stage);
+		        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+		        		batListener.actor.stage.addActor(batActor);
 		    		} catch (CaseOccupeeException e) {
 		    			GlobalClickListener.objetSelec = null;
 		    		}
@@ -52,6 +58,7 @@ public class TiledMapClickListener extends GlobalClickListener {
 		    		System.out.println("or");
 	    		try {
 	    			GlobalClickListener.partie.getJoueur().payer(0, 1, 0);
+	    			
     				
     			} catch (RessourceIndisponibleException e) {
     				GlobalClickListener.objetSelec = null;
@@ -59,6 +66,10 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    		try {
 	    			Mine mine_courante = new Mine(x,y,partie.getCarte(), partie.getJoueur(),env.getRessource()); 
 	    			GlobalClickListener.partie.getJoueur().ajouterBatiment(mine_courante);
+	        		LiveObjectActor batActor = new LiveObjectActor(mine_courante, this.stage);
+	        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+	        		batListener.actor.stage.addActor(batActor);
+	    			
 	    		} catch (CaseOccupeeException e) {
 	    			GlobalClickListener.objetSelec = null;
 	    		}
@@ -71,6 +82,9 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    		try {
 	    			Ferme ferme_courante = new Ferme(x,y,partie.getCarte(), partie.getJoueur(), env.getRessource()); 
 	    			GlobalClickListener.partie.getJoueur().ajouterBatiment(ferme_courante);
+	    			LiveObjectActor batActor = new LiveObjectActor(ferme_courante, this.stage);
+	        		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
+	        		batListener.actor.stage.addActor(batActor);
 	    		} catch (CaseOccupeeException e) {
 	    			GlobalClickListener.objetSelec = null;
 	    		}

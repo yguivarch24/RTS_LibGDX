@@ -13,11 +13,12 @@ import com.mygdx.game.model.LiveObject;
 public class LiveObjectActor extends Actor {
 
     LiveObject liveObject;
-
     Sprite sprite;
+    TiledMapStage stage;
 
-    public LiveObjectActor(LiveObject liveObject) {
-        this.liveObject = liveObject;
+    public LiveObjectActor(LiveObject liveObject, TiledMapStage st) {
+    	this.stage = st;
+    	this.liveObject = liveObject;
         setSprite();
         EventListener eventListener = new LiveObjectClickListener(this);
         addListener(eventListener);
@@ -42,12 +43,25 @@ public class LiveObjectActor extends Actor {
     		} else {
     			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/HVRouge.png")));
     		}
-    		break;
+    		break;	
     	case "com.mygdx.game.model.Caserne" : /* -------------PAS ENCORE DE SKIN PORU CASERNE --------*/
     		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
     			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/epee.png")));
     		} else {
     			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/epee.png")));
+    		}
+    		break;
+    	case "com.mygdx.game.model.Scierie" :
+			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/scierie.png")));
+		break;
+    	case "com.mygdx.game.model.Mine" :
+    		this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/mine.png")));
+		break;
+    	case "com.mygdx.game.model.Ferme" :
+    		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/fermeBleu.png")));
+    		} else {
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/fermeRouge.png")));
     		}
     		break;
     	case "com.mygdx.game.model.Soldat" :
@@ -57,11 +71,11 @@ public class LiveObjectActor extends Actor {
     			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/SoldatRouge.png")));
     		}
     		break;
-    	case "com.mygdx.game.model.Archer" : /* -------------PAS ENCORE DE SKIN PPUR ARCHER --------*/
+    	case "com.mygdx.game.model.Archer" : 
     		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
-    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/SoldatBleu.png")));
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/archer_bleu.png")));
     		} else {
-    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/SoldatRouge.png")));
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/archer_rouge.png")));
     		}
     		break;
     /* AFFICHAGE DES RESSOURCES -> NE SONT PAS DES LIVE OBJECT */

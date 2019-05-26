@@ -5,12 +5,12 @@ import com.mygdx.game.model.*;
 
 public class LiveObjectClickListener extends GlobalClickListener {
 
-    private LiveObjectActor actor;
+    protected LiveObjectActor actor;
 
     public LiveObjectClickListener(LiveObjectActor actor) {
         this.actor = actor;
     }
-
+    
     @Override
     public void clicked(InputEvent event, float x, float y) {
         System.out.println(actor.liveObject + " has been clicked.");

@@ -40,6 +40,7 @@ public class TiledMapStage extends Stage {
             TiledMapTileLayer tiledLayer = (TiledMapTileLayer)layer;
             createActorsForLayer(tiledLayer);
         }
+       
 
         createLiveObjectActors();
         
@@ -68,7 +69,7 @@ public class TiledMapStage extends Stage {
                     TiledMapActor actor = new TiledMapActor(tiledMap, tiledLayer, x, y);
                     actor.setBounds(x * tiledLayer.getTileWidth(), y * tiledLayer.getTileHeight(), tiledLayer.getTileWidth(), tiledLayer.getTileHeight());
                     addActor(actor);
-                    EventListener eventListener = new TiledMapClickListener(actor);
+                    EventListener eventListener = new TiledMapClickListener(actor,this);
                     actor.addListener(eventListener);
                     partie.getCarte().setComposant(x, y, actor.cellule);
                 }
@@ -83,17 +84,17 @@ public class TiledMapStage extends Stage {
     private void createLiveObjectActors() {
     	for(Joueur j : partie.getJoueurs()) {
         	for(Batiment bat : j.getBatiments()) {
-        		LiveObjectActor batActor = new LiveObjectActor(bat);
+        		LiveObjectActor batActor = new LiveObjectActor(bat,this);
         		LiveObjectClickListener batListener = new LiveObjectClickListener(batActor);
         		this.addActor(batActor);
         	};
         	for(Unite a : j.getArcher()) {
-        		LiveObjectActor archerActor = new LiveObjectActor(a);
+        		LiveObjectActor archerActor = new LiveObjectActor(a,this);
         		LiveObjectClickListener archerListener = new LiveObjectClickListener(archerActor);
         		this.addActor(archerActor);
         	};
         	for(Unite s : j.getSoldat()) {
-        		LiveObjectActor soldatActor = new LiveObjectActor(s);
+        		LiveObjectActor soldatActor = new LiveObjectActor(s,this);
         		LiveObjectClickListener soldatListener = new LiveObjectClickListener(soldatActor);
         		this.addActor(soldatActor);
         	};
