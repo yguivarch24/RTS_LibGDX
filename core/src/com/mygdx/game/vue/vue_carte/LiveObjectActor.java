@@ -45,9 +45,9 @@ public class LiveObjectActor extends Actor {
     		break;
     	case "com.mygdx.game.model.Caserne" : /* -------------PAS ENCORE DE SKIN PORU CASERNE --------*/
     		if(this.liveObject.getJoueur().getCouleur() == Color.blue) {
-    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/HVBleu.png")));
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/epee.png")));
     		} else {
-    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/HVRouge.png")));
+    			this.sprite = new Sprite(new Texture(Gdx.files.internal("Tiles/epee.png")));
     		}
     		break;
     	case "com.mygdx.game.model.Soldat" :

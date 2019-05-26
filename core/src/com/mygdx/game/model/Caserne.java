@@ -2,7 +2,7 @@ package com.mygdx.game.model;
 
 /** Classe représentant une caserne, specialisée dans la création d'archers et de soldats */
 
-public class caserne extends Batiment {
+public class Caserne extends Batiment {
 
 	/** Tableau des coordonnées relatives à la caserne,
 	 * c'est à dire, les coordonnées de l'ensemble des cases entourant la caserne. */
@@ -15,7 +15,7 @@ public class caserne extends Batiment {
 	 * @param joueur joeur qui possède l'objet
 	 * @throws CaseOccupeeException si la case est déjà occupée
 	 */
-	public caserne(int x, int y, Carte carte, Joueur joueur) throws CaseOccupeeException {
+	public Caserne(int x, int y, Carte carte, Joueur joueur) throws CaseOccupeeException {
 		super(x, y, carte, "Caserne", joueur, 50, 50, 0, 
 				1, 0, 15, 15, 5);
 	}
