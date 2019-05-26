@@ -11,7 +11,7 @@ public class Scierie extends BatimentRessource {
 	 * @param res la ressource à collecter
 	 */
 	public Scierie(int x, int y, Carte carte, Joueur joueur, Ressource res) throws CaseOccupeeException {
-		super(x,y, carte, "Scierie",joueur,res,100,100,0,20,1000,5,10,15,0);
+		super(x,y, carte, "Scierie",joueur,res,100,100,0,20,1000,5,5, 15, 20);
 	}
 }
 

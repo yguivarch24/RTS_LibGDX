@@ -13,7 +13,7 @@ public class Ferme extends BatimentRessource {
 	 * @throws CaseOccupeeException si la case est déjà occupée
 	 */
 	public Ferme(int x, int y, Carte carte, Joueur joueur, Ressource res) throws CaseOccupeeException {
-		super(x,y, carte, "Ferme",joueur,res,100,100,0,20,1000,5,10,15,0);
+		super(x,y, carte, "Ferme",joueur,res,100,100,0,20,1000,5,15,20,5);
 	}
 }
 
