@@ -40,7 +40,4 @@ public class BatimentRessource extends Batiment {
 		return this.ressource.getRessources();
 	}
 	
-	public int getCout() {
-		return this.getCout(); 
-	}
 }
