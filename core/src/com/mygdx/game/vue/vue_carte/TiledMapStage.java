@@ -2,12 +2,15 @@ package com.mygdx.game.vue.vue_carte;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.model.Batiment;
 import com.mygdx.game.model.Carte;
 import com.mygdx.game.model.Joueur;
@@ -22,11 +25,13 @@ public class TiledMapStage extends Stage {
     protected Partie partie;
     
     protected OrthographicCamera camera;
+    
+    protected UIMapStage uiStage;
+    
+    InputMultiplexer inputMultiplexer;
 
     public TiledMapStage(TiledMap tiledMap, Partie p) {
-        partie = p;
-    	
-        //partie.setCarte(new Carte(((TiledMapTileLayer)tiledMap.getLayers().get(0)).getWidth()));
+    	partie = p;
     	
         this.tiledMap = tiledMap;
         GlobalClickListener.partie = p;
@@ -38,6 +43,8 @@ public class TiledMapStage extends Stage {
 
         createLiveObjectActors();
         
+        uiStage = new UIMapStage(p);
+        
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
 
@@ -48,6 +55,10 @@ public class TiledMapStage extends Stage {
         getViewport().setCamera(camera);
         getViewport().setScreenX(0);
         getViewport().setScreenY(0);
+        
+        inputMultiplexer = new InputMultiplexer();
+        inputMultiplexer.addProcessor(uiStage);
+        inputMultiplexer.addProcessor(this);
     }
 
     private void createActorsForLayer(TiledMapTileLayer tiledLayer) {
@@ -66,8 +77,8 @@ public class TiledMapStage extends Stage {
         partie.initPartie();
     }
     
-    /** Nous permets de créer tous les acteurs liées à nos batiments et unités.
-     * Les acteurs liée au stage pourront ensutie être déssinés et affichés.
+    /** Nous permets de crÃ©er tous les acteurs liÃ©es Ã  nos batiments et unitÃ©s.
+     * Les acteurs liÃ©e au stage pourront ensutie Ãªtre dÃ©ssinÃ©s et affichÃ©s.
      */
     private void createLiveObjectActors() {
     	for(Joueur j : partie.getJoueurs()) {
@@ -106,4 +117,20 @@ public class TiledMapStage extends Stage {
             tiledMap.getLayers().get(1).setVisible(!tiledMap.getLayers().get(1).isVisible());
         return false;
     }
+    
+    
+
+	public UIMapStage getUiStage() {
+		return uiStage;
+	}
+
+	public void setUiStage(UIMapStage uiStage) {
+		this.uiStage = uiStage;
+	}
+
+	public InputMultiplexer getInputMultiplexer() {
+		return inputMultiplexer;
+	}
+    
+    
 }
