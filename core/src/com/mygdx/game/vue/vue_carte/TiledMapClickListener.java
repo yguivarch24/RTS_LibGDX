@@ -75,51 +75,6 @@ public class TiledMapClickListener extends GlobalClickListener {
 	    			GlobalClickListener.objetSelec = null;
 	    		}
 	    	}
-    		/*else if (actor.cellule instanceof Ressource) {
-	    		Ressource ressource_courante = (Ressource)actor.cellule;
-	    		if (ressource_courante.getNom() == "Bois") {
-	    			try {
-	    				partie.getJoueur().payer(0, 1, 0);
-	    			} catch (RessourceIndisponibleException e) {
-	    				GlobalClickListener.objetSelec = null;
-	    			}
-		    		try {
-		    			Scierie scierie_courante = new Scierie(x,y,partie.getCarte(), partie.getJoueur(),ressource_courante); 
-		    			partie.getJoueur().ajouterBatiment(scierie_courante);
-		    		} catch (CaseOccupeeException e) {
-		    			GlobalClickListener.objetSelec = null;
-		    		}
-	    			
-	    		} else if (ressource_courante.getNom() == "Or") {
-	    			try {
-	    				partie.getJoueur().payer(0, 1, 0);
-	    				
-	    			} catch (RessourceIndisponibleException e) {
-	    				GlobalClickListener.objetSelec = null;
-	    			}
-		    		try {
-		    			Mine mine_courante = new Mine(x,y,partie.getCarte(), partie.getJoueur(),ressource_courante); 
-		    			partie.getJoueur().ajouterBatiment(mine_courante);
-		    		} catch (CaseOccupeeException e) {
-		    			GlobalClickListener.objetSelec = null;
-		    		}
-	    			
-	    		} else if (ressource_courante.getNom() == "Nourriture") {
-	    			try {
-	    				partie.getJoueur().payer(0, 1, 0);
-	    			} catch (RessourceIndisponibleException e) {
-	    				GlobalClickListener.objetSelec = null;
-	    			}
-		    		try {
-		    			Ferme ferme_courante = new Ferme(x,y,partie.getCarte(), partie.getJoueur(),ressource_courante); 
-		    			partie.getJoueur().ajouterBatiment(ferme_courante);
-		    		} catch (CaseOccupeeException e) {
-		    			GlobalClickListener.objetSelec = null;
-		    		}
-	    			
-	    		} 
-	    	}  	
-	    	*/
     	} else {
     		GlobalClickListener.objetSelec = null;
     	}
